@@ -44,7 +44,7 @@
         \end{itemize}
         
         \vskip 1cm
-	\noindent Usiamo ora le tecniche sopra descritte per arrivare alle tabelle dei caratteri dei gruppi ciclici e di alcuni gruppi piccoli (S3, D4, Q8) per poi vedere alcuni trucchi più particolari
+	\noindent Usiamo ora le tecniche sopra descritte per arrivare alle tabelle dei caratteri dei gruppi ciclici e di alcuni gruppi piccoli (S3, D4, Q8, A4) per poi vedere alcuni trucchi più particolari
 	\vskip 1cm
 	
 	\section*{Gruppi ciclici}
@@ -55,7 +55,7 @@
 	Anche questi avranno solo caratteri di dimensione $1$. Inoltre usando il teorema di classificazione dei gruppi abeliani finiti, sappiamo che essi sono prodotto diretto di gruppi ciclici. Dovendo lavorare solo con gli omomorfismi da $G$ in $\bbC^{*}$ e sapendo che questi sono univocamente determinati dai loro valori sui generatori del gruppo, diciamo che i caratteri di $G$ sono tutti e soli quelli che si ottengono scegliendo le immagini dei generatori dei gruppi ciclici che lo compongono (e un'immagine di un generatore può essere scelta in $k$ modi, dove $k$ è l'ordine del gruppo ciclico che genera). \\
 	Ovviamente dobbiamo trovare $\mid G \mid$ omomorfismi, ciascuno dei quali è univocamente determinato dalle immagini dei generatori. Ogni generatore inoltre può andare solo in un radice $k$-esima dell'unità, dove $k$ è l'ordine del ciclico che genera. Quindi, per un rapido conto di cardinalità, si scopre che quelli così ottenuti sono omomorfismi (ne dobbiamo avere esattamente $\mid G \mid$) e che sono tutti e soli i caratteri di $G$.
 	
-	\section*{S3, D4, Q8}
+	\section*{S3, D4, Q8, A4}
         \subsection{Tabella dei caratteri di S3}
         Partiamo con le cose di routine. Ordine di S3: 6 elementi. Generato da 2 elementi: $(1 2)$ e $(1 2 3)$. Ha tre classi di coniugio: $\{e\}, \{(1 2), (2 3), (1 3)\}, \{(1 2 3), (1 3 2)\}$. Siccome è non abeliano ha almeno una rappresentazione di grado $\ge 2$. Ma rappresentazioni di grado $3$ o più non può averne perché $3^2 \ge 6$ e quindi ha necessariamente almeno una rappresentazione di grado $2$. Inoltre, siccome $6 = 2^2 + 1^2 + 1^2$ è l'unico modo di scrivere $6$ come somma di quadrati con almeno un $2$, ne segue che le rappresentazioni di S3 irriducibili saranno una di grado $2$ e due di grado $1$. \\
         Per trovarle sappiamo che $\chi_{\text{id}}$, la rappresentazione banale, esiste sempre. L'altra rappresentazione di grado $1$ è l'omomorfismo di segno (cosa che ci appuntiamo perché questa c'è ovviamente in tutti i gruppi simmetrici). Ci resta da trovare una rappresentazione di grado $2$. Abbiamo vari modi di trovarla:
@@ -98,6 +98,21 @@
 	$\chi_\text{j}$    & 1   & 1    & -1   & 1    & -1  \\
 	$\chi_\text{k}$    & 1   & 1    & -1   & -1   & 1   \\
 	$\chi_\text{g}$    & 2   & -2   & 0    & 0    & 0   \\
+	\end{tabular} \end{center} \vskip 0.5cm
+	
+	
+	\subsection{Tabella dei caratteri di A4}
+	Le classi di coniugio di $A_4$ sono rappresentate da $\text{id}$, $(1 2)(3 4)$, $(1 2 3)$, $(1 3 2)$ (si fa a conti ricordandosi che le classi di coniugio di $A_n$ sono o quelle di $S_n$ oppure quelle di $S_n$ spezzate a metà). \\
+	$A_4$ ha $12$ elementi e $4$ classi di coniugio. Inoltre so che non è abeliano (quindi ha almeno una rappresentazione di dimensione $\ge 2$) e ammette sicuramente la rappresentazione banale. Facendo i casi si vede che l'unico modo di fare $12$ sommando quattro quadrati con questi constraint è $12 = 3^2 + 3 \cdot 1^2$. Andiamo quindi a cercare tre omomorfismi di $A_4$ in $\mathbb{C}^{*}$ per poi completare la tabella per ortogonalità. \\
+	Notiamo che $A_4$ è generato dalla classe di coniugio di $(1 2 3)$. Infatti se conosco il valore di $\chi$ su questa classe so che $\chi (1 3 2) = \chi((1 2 3)) ^2$ e poi completo per omomorfismo. Siccome $(1 2 3)$ ha ordine tre e stiamo cercando rappresentazioni di grado $1$, si ha che $\chi (1 2 3)$ è un radice terza dell'unità. Ci sono quindi al più tre possibilità per un tale omomorfismo. Ciò significa che li abbiamo trovati tutti. \\
+	Completando per ortogonalità si ricava:
+	\begin{center} \begin{tabular}{lcccc}
+	numero di elementi & 1   & 3   & 4   & 4   \\
+	classi di conj. & $\text{id}$ & $(1 2)(3 4)$ & $(1 2 3)$ & $(1 3 2)$ \\ \hline
+	$\chi_\text{id}$ & 1    & 1    & 1    & 1    \\
+	$\chi_\text{a}$  & 1    & 1    & $\zeta$ & $\zeta^2$ \\
+	$\chi_\text{b}$  & 1    & 1    & $\zeta^2$ & $\zeta$ \\
+	$\chi_\text{g}$  & 3    & -1   & 0    & 0    \\
 	\end{tabular} \end{center} \vskip 0.5cm
 	
         
@@ -174,7 +189,18 @@
 	
 	\section{Altri Trucchi}
 	\begin{itemize}
+		\item ({\bf Lemma del centro}) Sia $\rho$ irriducibile. Se $g$ ed $h$ sono in classi di coniugio distinte, e $g^{-1}h \in Z(G)$ è nel centro del gruppo, allora si ha che $\rho(g^{-1}h) = \lambda \Id$ è un multiplo scalare dell'identità e $\chi(h) = \lambda \chi(g)$, dove $\lambda$ è una radice dell'unità \\
+		Infatti se $g^{-1}h$ sta nel centro di $G$ allora $\rho(g^{-1}h)$ commuta con tutte le $\rho(k) \forall k \in G$ e per il lemma di Schur si ha $\rho(g^{-1}h) = \lambda \Id$. \\
+		Quindi $\Tr \rho(h) = \Tr ( \rho(g) \rho(g^{-1}h) ) = \Tr ( \rho(g) \lambda \Id) = \lambda \Tr(\rho(g))$ come desiderato.
+		$\lambda$ inoltre è ovviamente una radice dell'unità per quanto notato precedentemente.
+		\item ({\bf Rappresentazione indotta da un automorfismo}) Sia $\rho$ una rappresentazione di $G$ e sia $\phi$ un automorfismo di $G$. Allora $\rho \circ \phi$ è una rappresentazione di $G$. Inoltre $\rho \circ \phi$ è irriducibile se e solo se $\rho$ è irriducibile \\
+		Per vedere che è una rappresentazione bisogna verificare che sia un omomorfismo da $G$ in $\GL(V)$, il che è ovvio se $\rho$ lo è. Inoltre per l'irriducibilità basterà verificare la freccia $\rho$ irriducibile implica $\rho \circ \phi$ irriducibile (il contrario è infatti ovvio se componiamo con $\phi^{-1}$). \\
+		Calcoliamo l'irriducibilità di $\rho \circ \phi$ con il carattere $\scal{\chi_{\rho \circ \phi}}{\chi_{\rho \circ \phi}} = \scal{\chi_\rho}{\chi_\rho} = 1$ con un semplice cambio di variabili (un automorfismo è biggettivo)
 		\item ({\bf Sottogruppi normali dalla tavola dei caratteri})
 	\end{itemize}
-		
+	
+	
+	\section{Dimension Theory}
+	In questa sezione introduciamo un po' di machinery per mostrare il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'ordine del gruppo $G$.
+	
 \end{document}

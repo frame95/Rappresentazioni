@@ -29,7 +29,7 @@ Siano $k$, e $n$ due interi positivi. Per ogni $\sigma \in S_k$ denotate con $\o
 $$ \frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)} = \binom{n+k-1}{k} $$
 
 \begin{sol} 
-
+	
 \end{sol}
 
 \begin{sol}
@@ -60,9 +60,7 @@ Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le poss
 
 \item[(b)] Dimostrate che ogni sottogruppo finito di $\mathbb{C}^*$ è ciclico
 
-\item[(c)] Se un gruppo finito ha una rappresentazione fedele irriducibile, allora il suo
-
-centro è ciclico. Nota: una rappresentazione $\rho$ di $G$ è fedele se $\rho: G \to \mathrm{GL}(V_{\rho}) $ è iniettivo.
+\item[(c)] Se un gruppo finito ha una rappresentazione fedele irriducibile, allora il suo centro è ciclico. Nota: una rappresentazione $\rho$ di $G$ è fedele se $\rho: G \to \mathrm{GL}(V_{\rho}) $ è iniettivo.
 
 \end{itemize}
 \begin{sol}
@@ -94,7 +92,18 @@ Se $\rho$ è una rappresentazione irriducibile di $S_5$ di grado 5 e $s \in S_5$
 Trovare la tavola dei caratteri di $A_4$.
 
 \begin{sol}
-
+	Do per noto che le classi di coniugio di $A_4$ siano rappresentate da $\text{id}$, $(1 2)(3 4)$, $(1 2 3)$, $(1 3 2)$ (si fa a conti ricordandosi che le classi di coniugio di $A_n$ sono o quelle di $S_n$ oppure quelle di $S_n$ spezzate a metà). \\
+	$A_4$ ha $12$ elementi e $4$ classi di coniugio. Inoltre so che non è abeliano (quindi ha almeno una rappresentazione di dimensione $\ge 2$) e ammette sicuramente la rappresentazione banale. Facendo i casi si vede che l'unico modo di fare $12$ sommando quattro quadrati con questi constraint è $12 = 3^2 + 3 \cdot 1^2$. Andiamo quindi a cercare tre omomorfismi di $A_4$ in $\mathbb{C}^{*}$ per poi completare la tabella per ortogonalità. \\
+	Notiamo che $A_4$ è generato dalla classe di coniugio di $(1 2 3)$. Infatti se conosco il valore di $\chi$ su questa classe so che $\chi (1 3 2) = \chi((1 2 3)) ^2$ e poi completo per omomorfismo. Siccome $(1 2 3)$ ha ordine tre e stiamo cercando rappresentazioni di grado $1$, si ha che $\chi (1 2 3)$ è un radice terza dell'unità. Ci sono quindi al più tre possibilità per un tale omomorfismo. Ciò significa che li abbiamo trovati tutti. \\
+	Completando per ortogonalità si ricava:
+	\begin{center} \begin{tabular}{lcccc}
+	numero di elementi & 1   & 3   & 4   & 4   \\
+	classi di conj. & $\text{id}$ & $(1 2)(3 4)$ & $(1 2 3)$ & $(1 3 2)$ \\ \hline
+	$\chi_\text{id}$ & 1    & 1    & 1    & 1    \\
+	$\chi_\text{a}$  & 1    & 1    & $\zeta$ & $\zeta^2$ \\
+	$\chi_\text{b}$  & 1    & 1    & $\zeta^2$ & $\zeta$ \\
+	$\chi_\text{g}$  & 3    & -1   & 0    & 0    \\
+	\end{tabular} \end{center} \vskip 0.5cm
 \end{sol}
 
 \begin{sol}
@@ -169,6 +178,5 @@ Sia $T$ un tetraedro di centro nell'origine, e sia $G \subseteq O_3$ il gruppo d
 
 \newpage
 \section*{Idee utili per gli esercizi}
-\subsection*{Tabelle dei caratteri}
 
 \end{document}
