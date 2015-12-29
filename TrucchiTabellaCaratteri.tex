@@ -88,6 +88,18 @@
 	
 	
 	\subsection{Tabella dei caratteri di Q8}
+	Gruppo dei quaternioni: $\{\pm 1, \pm i, \pm j, \pm k\}$. Numero di elementi: 8. Generato da 2 elementi: $i, j$ con relazione $ij = (-1)ji$. Classi di coniugio: $\{1\}, \{-1\}, \{\pm i\}, \{\pm j\}, \{\pm k\}$. Non abeliano ed ha almeno la rappresentazione banale quindi, come prima si ha $8 = 2^2 + 4 \cdot 1^2$. Cerchiamo i $4$ omomorfismi e poi completiamo la tabella per ortogonalità. \\
+	Notiamo che $-1$ è un elemento che al quadrato fa l'identità, quindi può venir mandato solo in $\pm 1 \in \bbC$. Ma se lo mandassimo in $-1$ non si manterrebbe la relazione $\rho(i)\rho(j) = \rho(-1)\rho(j)\rho(i)$, siccome ora $\rho(i)\rho(j) = \rho(j)\rho(i)$. Quindi $\rho(-1) = 1$ necessariamente. Ora siccome si ha $i^2 = j^2 = -1$, $i$ e $j$ possono venir mandati solo in $\pm 1 \in \bbC$. Queste sono solo quattro possibilità per i caratteri (che sono completamente determinati dalle immagini di $i$ e $j$) quindi li abbiamo trovati tutti. Completando si ottiene: \\
+	\begin{center} \begin{tabular}{lccccc}
+	numero elementi    & 1   & 1    & 2    & 2    & 2    \\
+	classi di conj.    & $1$ & $-1$ & $\pm i$ & $\pm j$ & $\pm k$ \\ \hline
+	$\chi_\text{id}$   & 1   & 1    & 1    & 1    & 1   \\
+	$\chi_\text{i}$    & 1   & 1    & 1    & -1   & -1  \\
+	$\chi_\text{j}$    & 1   & 1    & -1   & 1    & -1  \\
+	$\chi_\text{k}$    & 1   & 1    & -1   & -1   & 1   \\
+	$\chi_\text{g}$    & 2   & -2   & 0    & 0    & 0   \\
+	\end{tabular} \end{center} \vskip 0.5cm
+	
         
         \section{Trucchi Generici}
         Questa sezione espone e dimostra piccoli ma utili trucchi che non abbiamo visto in classe (e quindi diventano ancora più utili)
@@ -96,13 +108,14 @@
 		Inoltre tra gli autovalori di $\rho(g)$ possono comparire soltanto radici n-esime dell'unità. Se diagonalizzato, ci si rende facilmente conto che $\Tr \rho(g) = \sum_{i=0}^{n-1} m_i \zeta^i$ dove $\zeta$ è una radice $n$-esima primitiva dell'unità e gli $m_i$ sono interi positivi o nulli tali che $\sum_i m_i = \Dim \rho = \Tr \rho (e)$. Ovvero $\Tr \rho (g) \in \bbN[\zeta]$ ovvero nei polinomi a coefficienti numeri naturali valutati in $\zeta$.
 		\item ({\bf Prodotto con rappresentazioni di grado $1$}) Siano $\rho, \sigma$ due rappresentazioni irriducibili di $G$ e $\Dim \rho = 1$. Allora $\rho \otimes \sigma$ è ancora una rappresentazione irriducibile di $G$. \\
 		Infatti $\mid \chi_\rho(g) \mid ^ 2 = 1 \quad \forall g \in G$ per quanto detto sopra (essendo in dimensione $1$, $\chi_\rho(g)$ è una radice $n$-esima dell'unità ed ha quindi norma unitaria) e quindi $\scal{\chi_{\rho \otimes \sigma}}{\chi_{\rho \otimes \sigma}} = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma (g) \mid ^2 \cdot \mid \chi_\rho(g) \mid ^2 = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma(g) \mid^2 = 1$ perché $\sigma$ è irriducibile. \\
-		Questo è molto comodo per trovare altre rappresentazioni di gradi alti se si conoscono quelle di grado $1$. {\color{blue} Ci si chiede se valga il viceversa, ovvero è vero che l'azione di "tensorizzare" per una rappresentazione di grado $1$ è transitiva sulle rappresentazioni irriducibili di grado $d$ ? (Se ne ho una e faccio così le ottengo tutte?) Ci stavo pensando ma non riesco a dimostrare nulla (balbo)}
+		Questo è molto comodo per trovare altre rappresentazioni di gradi alti se si conoscono quelle di grado $1$. Ci si potrebbe chiedere se valga il viceversa, ovvero è vero che l'azione di "tensorizzare" per una rappresentazione di grado $1$ è transitiva sulle rappresentazioni irriducibili di grado $d$ ? (Se ne ho una e faccio così le ottengo tutte?) Purtroppo no, un controesempio alla portata è la tavola dei caratteri di A5. Esso ha un solo carattere di dimensione $1$ e due caratteri di dimensione $3$.
 		\item ({\bf Rappresentazioni indotte da Sottogruppi}) Se $\rho: G \rar GL(V)$ è una rappresentazione di $G$ e $H \sgr G$, allora si può comporre $\rho$ con l'inclusione per avere $\rho\mid_H: H \rar GL(V)$ come rappresentazione di $H$. \\
 		In particolare, se $\Dim V = 1$ si ha che le rappresentazioni di grado $1$ di $G$ ristrette ad un sottogruppo $H$ devono necessariamente coincidere con una rappresentazione di grado $1$ di $H$ (non possono scomporsi). Se si analizzano diversi sottogruppi ciò può dare molta informazione su $G$.
 		\item ({\bf $g$ e $g^{-1}$ coniugati}) Se $g$ e $g^{-1}$ appartengono alla stessa classe di coniugio allora $\chi(g)$ è reale. (Mostriamo infatti che in generale $\chi(g^{-1}) = \overline{\chi(g)}$ ottenendo la tesi) \\
 		Se scriviamo la traccia come sopra, ovvero $\Tr \rho(g) = \sum_i m_i \zeta^i$, si nota bene che nella base in cui $g$ è diagonale, lo è anche $g^{-1}$ e gli autovalori di $g^{-1}$ sono esattamente gli inversi di quelli di $g$, ma sulle radici dell'unità l'inverso è uguale al coniugato e quindi $\Tr \rho(g^{-1}) = \sum_i m_i \zeta^{-i} = \sum_i m_i \overline{\zeta^{i}} = \overline{ \sum_i m_i \zeta^{i}} = \overline{\Tr \rho(g)}$ perché $m_i \in \bbN$
-		\item ({\bf Sollevamento di rappresentazioni irriducibili di gruppi quoziente}) Supponiamo di avere $N \nrm G$ sottogruppo normale e avere una rappresentazione irriducibile $\rho$ del gruppo quoziente $H := \frac{G}{N}$. Allora questa induce una rappresentazione irriducibile $\hat\rho$ di $G$ \\
-		Definiamo $\hat\rho(g) := \rho(gN)$ e verifichiamo la buona definizione (ovvero se è costante sulle classi di coniugio) ma ovviamente se $g = xhx^{-1}$ allora $gN = (xN)(hN)(xN)^{-1}$. Abbiamo quindi una rappresentazione per $G$. Verifichiamo l'irriducibilità con i caratteri $$\frac{1}{\mid G \mid} \sum_{g \in G} \chi_{\hat\rho}(g) \overline{\chi_{\hat\rho}(g)} = \frac{1}{\mid G \mid} \sum_{gN \in \frac{G}{N}} \mid N \mid \cdot \chi_\rho(gN) \overline{\chi_\rho(gN)} = 1 $$ perché $\rho$ è irriducibile in $\frac{G}{N}$
+		\item ({\bf Sollevamento di rappresentazioni di gruppi quoziente}) Supponiamo di avere $N \nrm G$ sottogruppo normale e avere una rappresentazione $\rho$ del gruppo quoziente $H := \frac{G}{N}$. Allora questa induce una rappresentazione $\hat\rho$ di $G$ e si ha $\scal{\chi_{\hat\rho}}{\chi_{\hat\rho}} = \scal{\chi_\rho}{\chi_\rho}$ \\
+		Definiamo $\hat\rho(g) := \rho(gN)$ e verifichiamo la buona definizione (ovvero se è costante sulle classi di coniugio) ma ovviamente se $g = xhx^{-1}$ allora $gN = (xN)(hN)(xN)^{-1}$. Abbiamo quindi una rappresentazione per $G$. Verifichiamo l'irriducibilità con i caratteri $$\frac{1}{\mid G \mid} \sum_{g \in G} \chi_{\hat\rho}(g) \overline{\chi_{\hat\rho}(g)} = \frac{1}{\mid G \mid} \sum_{gN \in \frac{G}{N}} \mid N \mid \cdot \chi_\rho(gN) \overline{\chi_\rho(gN)} = \scal{\chi_\rho}{\chi_\rho} $$ \\
+		Quindi $\hat\rho$ è irriducibile se e solo se $\rho$ lo è.
 		\item ({\bf Azioni Naturali}) Può capitare che ci si blocchi nella ricerca di caratteri irriducibili di un gruppo. Al che può essere conveniente (se si hanno già alcuni caratteri) scomporre alcune rappresentazioni. Se si ha fortuna può capitare che scomponendo una rappresentazione (ovvero togliendo al carattere i caratteri irriducibili presenti già trovati) di trovare un carattere irriducibile non ancora scoperto (ovvero ha norma $1$). \\
 		Per trovare queste rappresentazioni può essere utile tenere a mente che da ogni azione di gruppo su un insieme $X$ si può ricavare una rappresentazione di $G$ considerando lo spazio vettoriale libero su $X$. In questo modo le matrici che rappresentano un elemento di $G$ nella base standard di $X$ sono matrici di permutazione, ovvero tutte le tracce sono numeri naturali positivi o nulli. \\
 		In particolare si possono considerare le seguenti azioni:
@@ -117,21 +130,51 @@
 	\end{itemize}
 	
 	\section{Rappresentazioni dei Gruppi Diedrali}
+	\subsection{Gruppi diedrali di ordine $2n$ con $n$ pari}
+	Consideriamo il gruppo $D_{2n}$ con $n$ pari. $D_{2n} := \langle a, x \mid a^n = x^2 = e, xax = a^-1 \rangle$. Questo gruppo ha $\frac{n+6}{2}$ classi di coniugio: l'identità, l'elemento $a^{\frac{n}{2}}$, $\frac{n-2}{2}$ classi di coniugio in $\gen{a}$ e due classi al di fuori di $\gen{a}$, con rappresentanti $x$ e $ax$. \\
+	Il sottogruppo dei commutatori è $\gen{a^2}$ che ha indice $4$ ed il gruppo quoziente (l'abelianizzato) è $C_2 \times C_2$. Abbiamo quindi solo $4$ caratteri uno dimensionali:
+	\begin{itemize}
+		\item La rappresentazione banale
+		\item La rappresentazione che manda $\gen{a}$ in $1$ e tutti gli elementi al di fuori di $\gen{a}$ in $-1$
+		\item La rappresentazione che manda tutti gli elementi in $\gen{a^2, x}$ in $1$ e $a$ in $-1$ (e si estende come omomorfismo)
+		\item La rappresentazione che manda tutti gli elementi in $\gen{a^2, ax}$ in $1$ e $a$ in $-1$
+	\end{itemize}
+	Inoltre si nota che, al variare di $k$, le rappresentazioni di dimensione $2$ così definite: $$a \mapsto \left( \begin{array}{cc} e^{ \frac{2\pi ik}{n} } & 0 \\ 0 & e^{ \frac{ -2\pi ik}{n} } \\ \end{array} \right) $$ $$x \mapsto \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)$$ sono $\frac{n-2}{2}$ (le rappresentazioni per $k$ e per $n-k$ sono le stesse) e sommando i quadrati di questi numeri si vede che abbiamo così trovato tutte le rappresentazioni di $D_{2n}$
 	
-	%\section{Rappresentazioni dei Gruppi Simmetrici}
+	\subsection{Gruppi diedrali di ordine $2n$ con $n$ dispari}
+	Consideriamo il gruppo diedrale $D_{2n}$ con $n$ dispari. $D_{2n} := \langle a, x \mid a^n = x^2 = e, xax = a^{-1} \rangle$. Il gruppo ha un totale di $\frac{n+3}{2}$ classi di coniugio: l'identità, $\frac{n-1}{2}$ classi di coniugio in $\gen{a}$ e la classe di coniugio di $x$. \\
+	Il sottogruppo derivato è $\gen{a}$ quindi l'abelianizzato ha solo due elementi. Le due rappresentazioni uno dimensionali quindi sono:
+	\begin{itemize}
+		\item La rappresentazione banale
+		\item La rappresentazione che manda $\gen{a}$ a $1$ e tutti gli elementi fuori di $\gen{a}$ a $-1$
+	\end{itemize}
+	Inoltre si nota che, al variare di $k$, le rappresentazioni di dimensione $2$ così definite: $$a \mapsto \left( \begin{array}{cc} e^{ \frac{2\pi ik}{n} } & 0 \\ 0 & e^{ \frac{-2\pi ik}{n} } \\ \end{array} \right) $$ $$x \mapsto \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)$$ sono $\frac{n-1}{2}$ (le rappresentazioni per $k$ e per $n-k$ sono le stesse) e sommando i quadrati di questi numeri si vede che abbiamo così trovato tutte le rappresentazioni di $D_{2n}$
+	
+	
+	\section{Rappresentazioni dei Gruppi Simmetrici}
+	
+	
+	\section{Rappresentazioni dei Gruppi Alterni}
+	
 	
 	\section{Prodotti diretti e semidiretti}
 	Trattiamo qui il problema delle rappresentazioni di $G$ quando $G = H \times K$ con $H, K$ generici oppure quando $G = H \rtimes_\phi K$ con $H, K$ abeliani.
 	
 	\subsection{Rappresentazioni del prodotto diretto}
-	Se $G = H \times K$ allora tutte e sole le rappresentazioni irriducibili di $G$ si ottengono come $\rho_H \otimes \sigma_K$ ovvero come prodotto tensore di una rappresentazione irriducibile di $H$ e una irriducibile di $K$
+	Se $G = H \times K$ allora tutte e sole le rappresentazioni irriducibili di $G$ si ottengono come $\rho \otimes \sigma$ ovvero come prodotto tensore di una rappresentazione irriducibile di $H$ e una irriducibile di $K$. \\
+	Infatti notiamo che le classi di coniugio di $H \times K$ sono prodotto cartesiano di classi di coniugio di $H$ e di quelle di $K$. Definiamo allora il sollevamento: siano date due rappresentazioni irriducibili di $H$ e di $K$ ($\rho: H \rar \GL(V)$ e $\sigma: K \rar \GL(W)$ rispettivamente). Definiamo allora la rappresentazione $\tau = \rho \otimes \sigma$ nel modo seguente: $\tau (h, k) := \rho(h) \times \sigma(k)$ dove $(\rho(h) \times \sigma(k))(v, w) := (\rho(h)(v), \sigma(k)(w))$. Verifichiamo che $\tau(h,k)$ è bilineare e quindi induce un'applicazione lineare su $V \otimes W$ per la proprietà universale del prodotto tensore. Si verifica inoltre che $\tau$ è un omomorfismo di gruppi e quindi è una rappresentazione di $G$. \\
+	$$\scal{\chi_\tau}{\chi_\tau} = \scal{\tilde\chi_\rho \cdot \tilde\chi_\sigma}{\tilde\chi_\rho \cdot \tilde\chi_\sigma} = \scal{\tilde\chi_\rho}{\tilde\chi_\rho} \cdot \scal{\tilde\chi_\sigma}{\tilde\chi_\sigma} = 1$$ dove con $\tilde\chi_\rho$ e $\tilde\chi_\sigma$ si intendono le due funzioni di classe che estendono naturalmente $\chi_\rho$ e $\chi_\sigma$. $\tilde\chi_\rho (h, k) := \chi_\rho(h)$. Quindi $\tau$ è irriducibile \\
+	Ora vediamo come da una rappresentazione irriducibile di $H \times K$ se ne ottengano una irriducibile di $H$ e una irriducibile di $K$: dalle immersioni canoniche di $H$ e $K$ in $G$ si ricavano due rappresentazioni di $H$ e di $K$ rispettivamente e notiamo che questa operazione di restrizione ed il sollevamento dato sopra sono una l'inversa dell'altra ($H$ e $K$ commutano e $\tau(h,k) = \tau(h,e) \cdot \tau(e,k)$). Quindi si ottiene che, siccome $\scal{\chi}{\chi} \in \bbN$ allora anche le rappresentazioni ristrette sono irriducibili e quindi abbiamo stabilito la biggezione cercata. {\color{blue} è scritto molto male ma non riesco a scriverlo decentemente (balbo)}
 	
 	\subsection{Rappresentazioni del prodotto semidiretto}
 	
+	
 	\section{Rappresentazioni di grado due}
 	
+	
 	\section{Altri Trucchi}
-	
-	
+	\begin{itemize}
+		\item ({\bf Sottogruppi normali dalla tavola dei caratteri})
+	\end{itemize}
 		
 \end{document}
