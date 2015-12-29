@@ -1,0 +1,137 @@
+\documentclass[a4paper,NoNotes,GeneralMath]{stdmdoc}
+
+\newcommand{\Ord}{\text{ord }}
+\newcommand{\sgr}{\sqsubseteq}
+\newcommand{\nrm}{\lhd}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\Int}{\text{Int }}
+\newcommand{\Ind}{\text{i }}
+\newcommand{\Aut}{\text{Aut }}
+\newcommand{\MCD}{\text{MCD }}
+\newcommand{\mcm}{\text{mcm }}
+\newcommand{\isom}{\equiv}
+\newcommand{\Irr}{\text{Irr }}
+\newcommand{\Abel}{\text{Abel }}
+
+\begin{document}
+	\title{Trovare le Tabelle dei caratteri}
+	
+	\section{Definizioni}
+	\begin{itemize}
+		\item ({\bf Rappresentazione}) Una rappresentazione di un gruppo $G$ è un omomorfismo $\rho: G \rar \GL (V)$, dove $V$ è uno spazio vettoriale sul campo $K$ (da noi solitamente $K = \bbC$ e $G$ sarà un gruppo finito)
+		\item ({\bf Carattere}) Si dice carattere di una rappresentazione $\rho$ la funzione indotta prendendo la traccia, ovvero $\chi_\rho : G \rar K$ definita da $\chi_\rho (g) = \Tr (\rho(g))$
+	\end{itemize}
+
+	\section{Lemmi e Teoremi Standard}
+	Siano $\rho_1, \ldots, \rho_r$ le rappresentazioni irriducibili di un gruppo finito $G$ (che sappiamo essere in numero finito). Sia $n$ la cardinalità di $G$. Siano $d_i = \Dim \rho_i$ le dimensioni delle rappresentazioni. \\
+	Indichiamo con $cl_g$ la classe di coniugio di $g \in G$ e con $c_g$ il numero di elementi che contiene. $\Irr(G)$ è un insieme di rappresentanti modulo isomorfismo dei caratteri irriducibili di $G$.
+        \begin{itemize}
+		\item ({\bf Caratteri di un gruppo abeliano}) Un gruppo $G$ è abeliano se e solo se tutte le sue rappresentazioni irriducibili hanno dimensione $1$.
+		\item ({\bf Carattere di una rappresentazione irriducibile}) Una rappresentazione $\rho$ di un gruppo $G$ è irriducibile se e solo se $\scal{\chi_\rho}{\chi_\rho} = 1$ (prodotto scalare interno)
+		\item $d_1^2 + \ldots + d_r^2 = n$
+		\item $r$ è il numero di classi di coniugio diverse di $G$
+		\item $\scal{\chi_i}{\chi_j} = \delta_{ij}$
+		\item $d_i = \chi_i (\Id)$, la dimensione della rappresentazione è la traccia dell'identità
+		\item $\frac{c_g}{n} \sum_{\chi \in \Irr(G)} \chi(g)\overline{\chi(h)} = \delta_{cl_g cl_h}$
+		\item I caratteri in dimensione $1$ sono tutti e soli gli omomorfismi da $G$ in $\bbC^{*}$. In particolare essi sono univocamente determinati sulle classi dei generatori. In più se $g$ e $g^a$ sono coniugati si ha $\chi(g) = \chi(g^a) = \chi(g)^a \implies \chi(g)$ è una radice $a-1$-esima dell'unità oppure è zero.
+        \end{itemize}
+        
+        \section{Osservazioni Stupide}
+        \begin{itemize}
+		\item La rappresentazione banale $\chi_{\text{id}}(g) = 1 \quad \forall g \in G$ c'è sempre
+		\item Non tutte le stringhe di numeri sono caratteri {\color{blue} Ci si chiede se esistano criteri sensati per poter dire che una stringa di numeri è un carattere di qualche rappresentazione. Risposte, anche parziali? (balbo)}
+		\item Può essere comodo inventarsi delle azioni di $G$ su un qualche insieme, passare alla rappresentazione sullo spazio vettoriale libero e provare a scomporre questa sperando che saltino fuori dei nuovi caratteri.
+        \end{itemize}
+        
+        \vskip 1cm
+	\noindent Usiamo ora le tecniche sopra descritte per arrivare alle tabelle dei caratteri dei gruppi ciclici e di alcuni gruppi piccoli (S3, D4, Q8) per poi vedere alcuni trucchi più particolari
+	\vskip 1cm
+	
+	\section*{Gruppi ciclici}
+	Essendo abeliani avranno solo caratteri di dimensione $1$ e quindi per $C_n$ avremo esattamente $n$ caratteri. Siccome sono tutti di dimensione $1$ basta fissarli su un generatore di $C_n = \gen{g}$. In particolare dovendo essere $1 = \chi(e) = \chi(g^n) = \chi(g)^n$ è necessario che $\chi(g)$ sia una radice $n$-esima dell'unità. Ciò è anche sufficiente in quanto stiamo cercando esattamente $n$ caratteri. \\
+	Quindi, detta $\zeta$ una radice n-esima primitiva dell'unità si ha $\chi_i(g^j) = \zeta^{ij}$ con $i = 0, \ldots, n-1$, $j = 0, \ldots, n-1$ è tutta la tabella dei caratteri.
+	
+	\section*{Gruppi abeliani}
+	Anche questi avranno solo caratteri di dimensione $1$. Inoltre usando il teorema di classificazione dei gruppi abeliani finiti, sappiamo che essi sono prodotto diretto di gruppi ciclici. Dovendo lavorare solo con gli omomorfismi da $G$ in $\bbC^{*}$ e sapendo che questi sono univocamente determinati dai loro valori sui generatori del gruppo, diciamo che i caratteri di $G$ sono tutti e soli quelli che si ottengono scegliendo le immagini dei generatori dei gruppi ciclici che lo compongono (e un'immagine di un generatore può essere scelta in $k$ modi, dove $k$ è l'ordine del gruppo ciclico che genera). \\
+	Ovviamente dobbiamo trovare $\mid G \mid$ omomorfismi, ciascuno dei quali è univocamente determinato dalle immagini dei generatori. Ogni generatore inoltre può andare solo in un radice $k$-esima dell'unità, dove $k$ è l'ordine del ciclico che genera. Quindi, per un rapido conto di cardinalità, si scopre che quelli così ottenuti sono omomorfismi (ne dobbiamo avere esattamente $\mid G \mid$) e che sono tutti e soli i caratteri di $G$.
+	
+	\section*{S3, D4, Q8}
+        \subsection{Tabella dei caratteri di S3}
+        Partiamo con le cose di routine. Ordine di S3: 6 elementi. Generato da 2 elementi: $(1 2)$ e $(1 2 3)$. Ha tre classi di coniugio: $\{e\}, \{(1 2), (2 3), (1 3)\}, \{(1 2 3), (1 3 2)\}$. Siccome è non abeliano ha almeno una rappresentazione di grado $\ge 2$. Ma rappresentazioni di grado $3$ o più non può averne perché $3^2 \ge 6$ e quindi ha necessariamente almeno una rappresentazione di grado $2$. Inoltre, siccome $6 = 2^2 + 1^2 + 1^2$ è l'unico modo di scrivere $6$ come somma di quadrati con almeno un $2$, ne segue che le rappresentazioni di S3 irriducibili saranno una di grado $2$ e due di grado $1$. \\
+        Per trovarle sappiamo che $\chi_{\text{id}}$, la rappresentazione banale, esiste sempre. L'altra rappresentazione di grado $1$ è l'omomorfismo di segno (cosa che ci appuntiamo perché questa c'è ovviamente in tutti i gruppi simmetrici). Ci resta da trovare una rappresentazione di grado $2$. Abbiamo vari modi di trovarla:
+		\begin{itemize}
+			\item Calcolarla per ortogonalità delle righe o delle colonne (cosa che si può sempre fare quando manca un solo carattere)
+			\item Scomporre la rappresentazione regolare di S3 sottraendo le proiezioni sui primi due caratteri
+		\end{itemize}
+	Ad ogni modo la tabella dei caratteri finale risulta: \\
+	\begin{center} \begin{tabular}{lccc}
+	numero elementi   & 1   & 3   & 2   \\ 
+	classi di conj.   & $\{e\}$  &  $\{(1 2), (2 3), (1 3)\}$  & $\{(1 2 3), (1 3 2)\}$ \\ \hline
+	$\chi_\text{id}$  & 1   & 1   & 1   \\
+	$\chi_\text{sgn}$ & 1   & -1  & 1   \\
+	$\chi_\text{std}$ & 2   & 0   & -1  \\
+	\end{tabular} \end{center} \vskip 0.5cm
+	
+	
+	\subsection{Tabella dei caratteri di D4}
+	Ordine di D4: 8 elementi. Generato da 2 elementi: $\rho, \sigma$ (rispettivamente rotazione e simmetria, con relazioni $\rho^4 = \sigma^2 = e$ e $\sigma \rho \sigma^{-1} = \rho^{-1}$). Ha 5 classi di coniugio: $\{e\}, \{\rho^2\}, \{\rho, \rho^3\}, \{\sigma, \sigma\rho^2\}, \{\sigma\rho, \sigma\rho^3\}$. Non è abeliano e ha almeno la rappresentazione banale, quindi si ha $8 = 2^2 + 4 \cdot 1^2$ è l'unico modo di scrivere $8$. Dobbiamo quindi trovare $4$ omomorfismi di D4 in $\bbC^{*}$ per poi ricavare per ortogonalità la rappresentazione di dimensione $2$. \\
+	Notiamo che, siccome $\sigma$ ha ordine $2$, esso può essere mandato solo in $\pm 1$ (radici 2-esime dell'unità) e siccome $\rho$ e $\rho^-1$ stanno nella stessa classe di coniugio si ha $x = \chi(\rho)$ deve essere una radice quarta dell'unità che rispetti $x = x^3$ e quindi deve essere solo o $1$ o $-1$. Abbiamo quindi solo quattro possibili scelte per un possibile omomorfismo da D4 in $\bbC^{*}$, che sono quindi obbligate perché sappiamo che esistono $4$ caratteri di dimensione $1$ per D4 (ovvero omomorfismi). Quindi scrivendo questi nella tabella e completandola per ortonormalità si ha: \\
+	\begin{center} \begin{tabular}{lccccc}
+	numero elementi   & 1   & 1   & 2   & 2   & 2   \\
+	classi di conj.   & $e$  & $\rho^2$ & $\rho, \rho^3$ & $\sigma, \sigma\rho^2$ & $\sigma\rho, \sigma\rho^3$ \\ \hline
+	$\chi_\text{id}$  & 1   & 1   & 1   & 1   & 1   \\
+	$\chi_\text{a}$   & 1   & 1   & 1   & -1  & -1  \\
+	$\chi_\text{b}$   & 1   & 1   & -1  & 1   & -1  \\
+	$\chi_\text{ab}$  & 1   & 1   & -1  & -1  & 1   \\
+	$\chi_\text{g}$   & 2   & -2  & 0   & 0   & 0   \\
+	\end{tabular} \end{center} \vskip 0.5cm
+	
+	
+	\subsection{Tabella dei caratteri di Q8}
+        
+        \section{Trucchi Generici}
+        Questa sezione espone e dimostra piccoli ma utili trucchi che non abbiamo visto in classe (e quindi diventano ancora più utili)
+        \begin{itemize}
+		\item ({\bf Possibili autovalori di un elemento}) Notiamo che se $g^k = e$ allora $\rho(g)^k = \rho(g^k) = \rho(e) = \Id$ quindi $\rho(g)$ si annulla sul polinomio $x^k - 1$, ovvero il polinomio minimo di $\rho(g)$ divide $x^k - 1$, che non ha radici doppie, quindi $\rho(g)$ è diagonalizzabile $\forall g$. \\
+		Inoltre tra gli autovalori di $\rho(g)$ possono comparire soltanto radici n-esime dell'unità. Se diagonalizzato, ci si rende facilmente conto che $\Tr \rho(g) = \sum_{i=0}^{n-1} m_i \zeta^i$ dove $\zeta$ è una radice $n$-esima primitiva dell'unità e gli $m_i$ sono interi positivi o nulli tali che $\sum_i m_i = \Dim \rho = \Tr \rho (e)$. Ovvero $\Tr \rho (g) \in \bbN[\zeta]$ ovvero nei polinomi a coefficienti numeri naturali valutati in $\zeta$.
+		\item ({\bf Prodotto con rappresentazioni di grado $1$}) Siano $\rho, \sigma$ due rappresentazioni irriducibili di $G$ e $\Dim \rho = 1$. Allora $\rho \otimes \sigma$ è ancora una rappresentazione irriducibile di $G$. \\
+		Infatti $\mid \chi_\rho(g) \mid ^ 2 = 1 \quad \forall g \in G$ per quanto detto sopra (essendo in dimensione $1$, $\chi_\rho(g)$ è una radice $n$-esima dell'unità ed ha quindi norma unitaria) e quindi $\scal{\chi_{\rho \otimes \sigma}}{\chi_{\rho \otimes \sigma}} = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma (g) \mid ^2 \cdot \mid \chi_\rho(g) \mid ^2 = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma(g) \mid^2 = 1$ perché $\sigma$ è irriducibile. \\
+		Questo è molto comodo per trovare altre rappresentazioni di gradi alti se si conoscono quelle di grado $1$. {\color{blue} Ci si chiede se valga il viceversa, ovvero è vero che l'azione di "tensorizzare" per una rappresentazione di grado $1$ è transitiva sulle rappresentazioni irriducibili di grado $d$ ? (Se ne ho una e faccio così le ottengo tutte?) Ci stavo pensando ma non riesco a dimostrare nulla (balbo)}
+		\item ({\bf Rappresentazioni indotte da Sottogruppi}) Se $\rho: G \rar GL(V)$ è una rappresentazione di $G$ e $H \sgr G$, allora si può comporre $\rho$ con l'inclusione per avere $\rho\mid_H: H \rar GL(V)$ come rappresentazione di $H$. \\
+		In particolare, se $\Dim V = 1$ si ha che le rappresentazioni di grado $1$ di $G$ ristrette ad un sottogruppo $H$ devono necessariamente coincidere con una rappresentazione di grado $1$ di $H$ (non possono scomporsi). Se si analizzano diversi sottogruppi ciò può dare molta informazione su $G$.
+		\item ({\bf $g$ e $g^{-1}$ coniugati}) Se $g$ e $g^{-1}$ appartengono alla stessa classe di coniugio allora $\chi(g)$ è reale. (Mostriamo infatti che in generale $\chi(g^{-1}) = \overline{\chi(g)}$ ottenendo la tesi) \\
+		Se scriviamo la traccia come sopra, ovvero $\Tr \rho(g) = \sum_i m_i \zeta^i$, si nota bene che nella base in cui $g$ è diagonale, lo è anche $g^{-1}$ e gli autovalori di $g^{-1}$ sono esattamente gli inversi di quelli di $g$, ma sulle radici dell'unità l'inverso è uguale al coniugato e quindi $\Tr \rho(g^{-1}) = \sum_i m_i \zeta^{-i} = \sum_i m_i \overline{\zeta^{i}} = \overline{ \sum_i m_i \zeta^{i}} = \overline{\Tr \rho(g)}$ perché $m_i \in \bbN$
+		\item ({\bf Sollevamento di rappresentazioni irriducibili di gruppi quoziente}) Supponiamo di avere $N \nrm G$ sottogruppo normale e avere una rappresentazione irriducibile $\rho$ del gruppo quoziente $H := \frac{G}{N}$. Allora questa induce una rappresentazione irriducibile $\hat\rho$ di $G$ \\
+		Definiamo $\hat\rho(g) := \rho(gN)$ e verifichiamo la buona definizione (ovvero se è costante sulle classi di coniugio) ma ovviamente se $g = xhx^{-1}$ allora $gN = (xN)(hN)(xN)^{-1}$. Abbiamo quindi una rappresentazione per $G$. Verifichiamo l'irriducibilità con i caratteri $$\frac{1}{\mid G \mid} \sum_{g \in G} \chi_{\hat\rho}(g) \overline{\chi_{\hat\rho}(g)} = \frac{1}{\mid G \mid} \sum_{gN \in \frac{G}{N}} \mid N \mid \cdot \chi_\rho(gN) \overline{\chi_\rho(gN)} = 1 $$ perché $\rho$ è irriducibile in $\frac{G}{N}$
+		\item ({\bf Azioni Naturali}) Può capitare che ci si blocchi nella ricerca di caratteri irriducibili di un gruppo. Al che può essere conveniente (se si hanno già alcuni caratteri) scomporre alcune rappresentazioni. Se si ha fortuna può capitare che scomponendo una rappresentazione (ovvero togliendo al carattere i caratteri irriducibili presenti già trovati) di trovare un carattere irriducibile non ancora scoperto (ovvero ha norma $1$). \\
+		Per trovare queste rappresentazioni può essere utile tenere a mente che da ogni azione di gruppo su un insieme $X$ si può ricavare una rappresentazione di $G$ considerando lo spazio vettoriale libero su $X$. In questo modo le matrici che rappresentano un elemento di $G$ nella base standard di $X$ sono matrici di permutazione, ovvero tutte le tracce sono numeri naturali positivi o nulli. \\
+		In particolare si possono considerare le seguenti azioni:
+		\begin{itemize}
+			\item di traslazione su $G$ stesso, che induce la rappresentazione regolare
+			\item di traslazione sulle classi laterali di $G$ rispetto ad un suo sottogruppo $H$ (che ad esempio fornisce la rappresentazione di segno in Sn, prendendo $H$ il sottogruppo An)
+			\item di coniugio su elementi di $G$
+			\item Se identifichiamo $G$ con un sottogruppo di Sn (utile se $n$ è piccolo rispetto all'ordine del gruppo, per non dover morire di conti) possiamo sfruttare l'azione delle permutazioni di Sn su $\{1\}, \ldots, \{n\}$ oppure anche su $\{i, j \}$ al variare di $i, j$ tra le possibili coppie, oppure sulle triple, e così via. (In particolare se ad esempio le triple sono poche può saltar fuori una rappresentazione piccola)
+		\end{itemize}
+		\item ({\bf Numero di rappresentazioni di grado $1$}) Il numero di rappresentazioni di grado $1$ di $G$ è uguale all'indice del derivato di $G$, ovvero all'ordine di $\frac{G}{G'}$. \\
+		Infatti, una rappresentazione di grado $1$, come più volte ricordato, è un omomorfismo da $G$ in $\bbC^{*}$. Per la teoria dei gruppi elementare si ha che, siccome $\bbC^{*}$ è abeliano, ogni omomorfismo da $G$ in $\bbC^{*}$ si fattorizza sull'abelianizzato di $G$. Quindi un carattere di $G$ di dimensione $1$ è necessariamente anche un carattere di dimensione $1$ di $\frac{G}{G'}$. Inoltre, come visto sopra, un carattere irriducibile da un gruppo quoziente si solleva ad un carattere irriducibile di $G$. Si verifica inoltre sciogliendo le definizioni che le due operazioni di sollevamento e di fattorizzazione sono una l'inversa dell'altra. Abbiamo così stabilito una biggezione tra i caratteri di dimensione $1$ di $G$ e quelli di $\Abel(G)$. Si conclude ora notando che $\Abel(G)$ è abeliano, da cui la tesi.
+	\end{itemize}
+	
+	\section{Rappresentazioni dei Gruppi Diedrali}
+	
+	%\section{Rappresentazioni dei Gruppi Simmetrici}
+	
+	\section{Prodotti diretti e semidiretti}
+	Trattiamo qui il problema delle rappresentazioni di $G$ quando $G = H \times K$ con $H, K$ generici oppure quando $G = H \rtimes_\phi K$ con $H, K$ abeliani.
+	
+	\subsection{Rappresentazioni del prodotto diretto}
+	Se $G = H \times K$ allora tutte e sole le rappresentazioni irriducibili di $G$ si ottengono come $\rho_H \otimes \sigma_K$ ovvero come prodotto tensore di una rappresentazione irriducibile di $H$ e una irriducibile di $K$
+	
+	\subsection{Rappresentazioni del prodotto semidiretto}
+	
+	\section{Rappresentazioni di grado due}
+	
+	\section{Altri Trucchi}
+	
+	
+		
+\end{document}
