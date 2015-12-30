@@ -136,17 +136,35 @@
 		In particolare si possono considerare le seguenti azioni:
 		\begin{itemize}
 			\item di traslazione su $G$ stesso, che induce la rappresentazione regolare
-			\item di traslazione sulle classi laterali di $G$ rispetto ad un suo sottogruppo $H$ (che ad esempio fornisce la rappresentazione di segno in Sn, prendendo $H$ il sottogruppo An)
+			\item di traslazione sulle classi laterali di $G$ rispetto ad un suo sottogruppo $H$ (che ad esempio fornisce la rappresentazione di segno in Sn, prendendo $H$ il sottogruppo An). Notare che tutte le azioni transitive (le non transitive danno sempre luogo a rappresentazioni riducibili, perchè?) sono 'isomorfe' a quelle di questo tipo, quindi virtualmente ci sono tutte le possibili azioni che possono rivelarsi utili.
 			\item di coniugio su elementi di $G$
 			\item Se identifichiamo $G$ con un sottogruppo di Sn (utile se $n$ è piccolo rispetto all'ordine del gruppo, per non dover morire di conti) possiamo sfruttare l'azione delle permutazioni di Sn su $\{1\}, \ldots, \{n\}$ oppure anche su $\{i, j \}$ al variare di $i, j$ tra le possibili coppie, oppure sulle triple, e così via. (In particolare se ad esempio le triple sono poche può saltar fuori una rappresentazione piccola)
+			\item Per i più skillati, giocando con il numero di p-Sylow possiamo considerare l'azione di coniugio sui p-Sylow quando un $n_p$ è $>1$ ma abbastanza piccolo (se è 1, possiamo usare il sollevamento dai quozienti). Notare che non tutti gli $n_p$ possono essere grandi, altrimenti contando gli elementi del gruppo divisi per ordine saltan fuori troppi elementi.
 		\end{itemize}
 		\item ({\bf Numero di rappresentazioni di grado $1$}) Il numero di rappresentazioni di grado $1$ di $G$ è uguale all'indice del derivato di $G$, ovvero all'ordine di $\frac{G}{G'}$. \\
 		Infatti, una rappresentazione di grado $1$, come più volte ricordato, è un omomorfismo da $G$ in $\bbC^{*}$. Per la teoria dei gruppi elementare si ha che, siccome $\bbC^{*}$ è abeliano, ogni omomorfismo da $G$ in $\bbC^{*}$ si fattorizza sull'abelianizzato di $G$. Quindi un carattere di $G$ di dimensione $1$ è necessariamente anche un carattere di dimensione $1$ di $\frac{G}{G'}$. Inoltre, come visto sopra, un carattere irriducibile da un gruppo quoziente si solleva ad un carattere irriducibile di $G$. Si verifica inoltre sciogliendo le definizioni che le due operazioni di sollevamento e di fattorizzazione sono una l'inversa dell'altra. Abbiamo così stabilito una biggezione tra i caratteri di dimensione $1$ di $G$ e quelli di $\Abel(G)$. Si conclude ora notando che $\Abel(G)$ è abeliano, da cui la tesi.
+		\item ({\bf Rappresentazioni di grado $1$, come classificarle tutte) In virtù del paragrafo precedente, trovare il derivato $G' = \langle \{ xyx^-1y^-1:\ x,y \in G\} \rangle$ diventa equivalente a trovare le rappresentazioni di grado 1. Una volta ttrovato $G'$, basta quozientare e sollevare i caratteri del gruppo abeliano $G/G'$. Come trovare il derivato:
+		\begin{itemize}
+		\item Intanto, si scrivono le classi di coniugio (che uno dovrebbe aver già fatto se sta facendo la tabella);
+		\item Si trova qualche elemento, considerando che fare $(xyx^-1)y^-1$ significa fissare un $y$ e poi moltiplicare un suo coniugato con il suo inverso.
+		\item Si tiene presente che $G'$ è un sottogruppo (quindi la cardinalità divide la cardinalità del gruppo e se ci sono due tizi c'è anche il prodotto) normale (quindi se c'è un elemento c'è anche tutta la sua classe di coniugio). 
+		\item Per limitare invece la dimensione di $G'$, se pensate di essere soddisfatti del vostro $G'$ quozientate: se viene abeliano, avete fatto!
+		\item Un colpo al cerchio e uno alla botte: se trovate un omomorfismo ad un gruppo abeliano $\varphi:G \to H$ (ad esempio una rappresentazione di grado 1 con $H = \bb C^*$), allora  $G' \subseteq \ker \varphi$.
+		Per esercizio, è facile trovare esplicitamente il derivato di $S_n$ ( $n=1, \ldots, 4$ a mano, $n \ge 5$ è $A_n$), di $A_n$ ($n=1, \ldots 4$ a mano, $n \ge 5$ è $A_n$) e di $D_n$ (separare caso $n$ pari e dispari).
+		
+		\item ({\bf Operazioni sulle rappresentazioni per vincolare quelle da scoprire)
+		Generalmente, è meglio trovare prima le rappresentazioni di grado 1 con le tecniche sopra descritte. Poi cercare di trovare quante rappresentazioni ho di ogni grado, usando che il grado di una rappresentazione divide l'ordine del gruppo, che il numero di rappresentazioni è uguale al numero delle classi di coniugio e che i quadrati dei gradi sommano all'ordine del gruppo.
+		Per ogni nuova rappresentazione che scopro, posso tensorizzarla con tutte quelle di grado 1 e 'permutarla' con la tecnica degli automorfismi descritta in 'Altri Trucchi'. Se invece sono alla ricerca di nuove rappresentazioni e me ne rimangono poche, posso limitarle sapendo che posso generarne altre. In particolare, se mi rimane una sola rappresentazione $\sigma$ di grado $d$ (e sulle altre ho già fatto tensorizzazioni e permutazioni), allora:
+		\begin{itemize}
+		\item Se $\chi_{\rho}(x) \neq 1$ per $\rho$ irriducibile di grado 1, allora $\chi_{\sigma}(x) = 0$, altrimenti $\rho \otimes \sigma$ sarebbe distinta da $\sigma$ (e anche da tutte le altre, perchè $\sigma \otimes \rho = \tau \ \Rightarrow \sigma = \tau \otimes \rho^-1$, perciò l'avrei già ottenuta prima).
+		\item Se $\psi:G \to G$ è un automorfismo che manda $x$ in $y$ allora $\chi_{\sigma}(x) = \chi_{\sigma}(y)$, altrimenti $\sigma \psi$ sarebbe distinta da $\sigma$ (e anche da tutte le altre, perchè $\sigma\psi = \tau \Rightarrow \sigma = \tau \psi^{-1}$, perciò l'avrei già ottenuta prima).
+		\end{itemize}
+		\end{itemize}
 	\end{itemize}
 	
 	\section{Rappresentazioni dei Gruppi Diedrali}
-	\subsection{Gruppi diedrali di ordine $2n$ con $n$ pari}
-	Consideriamo il gruppo $D_{2n}$ con $n$ pari. $D_{2n} := \langle a, x \mid a^n = x^2 = e, xax = a^-1 \rangle$. Questo gruppo ha $\frac{n+6}{2}$ classi di coniugio: l'identità, l'elemento $a^{\frac{n}{2}}$, $\frac{n-2}{2}$ classi di coniugio in $\gen{a}$ e due classi al di fuori di $\gen{a}$, con rappresentanti $x$ e $ax$. \\
+	\subsection{Gruppi diedrali di ordine $n$ con $n$ pari}
+	Consideriamo il gruppo $D_{n}$ con $n$ pari. $D_{2n} := \langle a, x \mid a^n = x^2 = e, xax = a^-1 \rangle$. Questo gruppo ha $\frac{n+6}{2}$ classi di coniugio: l'identità, l'elemento $a^{\frac{n}{2}}$, $\frac{n-2}{2}$ classi di coniugio in $\gen{a}$ e due classi al di fuori di $\gen{a}$, con rappresentanti $x$ e $ax$. \\
 	Il sottogruppo dei commutatori è $\gen{a^2}$ che ha indice $4$ ed il gruppo quoziente (l'abelianizzato) è $C_2 \times C_2$. Abbiamo quindi solo $4$ caratteri uno dimensionali:
 	\begin{itemize}
 		\item La rappresentazione banale
@@ -154,10 +172,10 @@
 		\item La rappresentazione che manda tutti gli elementi in $\gen{a^2, x}$ in $1$ e $a$ in $-1$ (e si estende come omomorfismo)
 		\item La rappresentazione che manda tutti gli elementi in $\gen{a^2, ax}$ in $1$ e $a$ in $-1$
 	\end{itemize}
-	Inoltre si nota che, al variare di $k$, le rappresentazioni di dimensione $2$ così definite: $$a \mapsto \left( \begin{array}{cc} e^{ \frac{2\pi ik}{n} } & 0 \\ 0 & e^{ \frac{ -2\pi ik}{n} } \\ \end{array} \right) $$ $$x \mapsto \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)$$ sono $\frac{n-2}{2}$ (le rappresentazioni per $k$ e per $n-k$ sono le stesse) e sommando i quadrati di questi numeri si vede che abbiamo così trovato tutte le rappresentazioni di $D_{2n}$
+	Inoltre si nota che, al variare di $k$, le rappresentazioni di dimensione $2$ così definite: $$a \mapsto \left( \begin{array}{cc} e^{ \frac{2\pi ik}{n} } & 0 \\ 0 & e^{ \frac{ -2\pi ik}{n} } \\ \end{array} \right) $$ $$x \mapsto \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)$$ sono $\frac{n-2}{2}$ (le rappresentazioni per $k$ e per $n-k$ sono le stesse) e sommando i quadrati di questi numeri si vede che abbiamo così trovato tutte le rappresentazioni di $D_{n}$
 	
-	\subsection{Gruppi diedrali di ordine $2n$ con $n$ dispari}
-	Consideriamo il gruppo diedrale $D_{2n}$ con $n$ dispari. $D_{2n} := \langle a, x \mid a^n = x^2 = e, xax = a^{-1} \rangle$. Il gruppo ha un totale di $\frac{n+3}{2}$ classi di coniugio: l'identità, $\frac{n-1}{2}$ classi di coniugio in $\gen{a}$ e la classe di coniugio di $x$. \\
+	\subsection{Gruppi diedrali di ordine $n$ con $n$ dispari}
+	Consideriamo il gruppo diedrale $D_{n}$ con $n$ dispari. $D_{n} := \langle a, x \mid a^n = x^2 = e, xax = a^{-1} \rangle$. Il gruppo ha un totale di $\frac{n+3}{2}$ classi di coniugio: l'identità, $\frac{n-1}{2}$ classi di coniugio in $\gen{a}$ e la classe di coniugio di $x$. \\
 	Il sottogruppo derivato è $\gen{a}$ quindi l'abelianizzato ha solo due elementi. Le due rappresentazioni uno dimensionali quindi sono:
 	\begin{itemize}
 		\item La rappresentazione banale
