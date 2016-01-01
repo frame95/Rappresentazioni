@@ -13,17 +13,19 @@
 \theoremstyle{plain}
 \newtheorem{sol}{Soluzione}[ex]
 
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\Irr}{\text{Irr }}
+
+% Titolo
 \title{Rappresentazioni \\ { \textit soluzioni agli esercizi per natale }}
-
 \author{Second'anno di matematica, SNS}
-
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \section*{Soluzioni agli esercizi}
-
+% Esercizio 1
 \begin{ex} 
 Siano $k$, e $n$ due interi positivi. Per ogni $\sigma \in S_k$ denotate con $\omega(\sigma)$ il numero di orbite di $\sigma$ su $\{1, \ldots, k\}$. Dimostrate la formula:
 $$ \frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)} = \binom{n+k-1}{k} $$
@@ -39,6 +41,7 @@ $$ \frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)} = \binom{n+k-1}{k} $$
 
 \end{ex}
 
+% Esercizio 2
 \begin{ex}
 Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le possibili coppie di rappresentazioni irriducibili di $S_4$.
 
@@ -53,6 +56,7 @@ Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le poss
 
 \end{ex}
 
+% Esercizio 3
 \begin{ex}
 
 \begin{itemize}
@@ -74,6 +78,7 @@ Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le poss
 
 \end{ex}
 
+% Esercizio 4
 \begin{ex}
 Se $\rho$ è una rappresentazione irriducibile di $S_5$ di grado 5 e $s \in S_5$ è un 5-ciclo, fate vedere che $\rho(s)$ ha come autovalori tutte e sole le radici quinte dell’unità.
 
@@ -88,6 +93,7 @@ Se $\rho$ è una rappresentazione irriducibile di $S_5$ di grado 5 e $s \in S_5$
 
 \end{ex}
 
+% Esercizio 5
 \begin{ex}
 Trovare la tavola dei caratteri di $A_4$.
 
@@ -113,11 +119,23 @@ Trovare la tavola dei caratteri di $A_4$.
 
 \end{ex}
 
+% Esercizio 6
 \begin{ex}
 Trovare la tavola dei caratteri di $D_4, D_5$.
 
 \begin{sol}
-
+\subsection{Tabella dei caratteri di D4}
+	Ordine di D4: 8 elementi. Generato da 2 elementi: $\rho, \sigma$ (rispettivamente rotazione e simmetria, con relazioni $\rho^4 = \sigma^2 = e$ e $\sigma \rho \sigma^{-1} = \rho^{-1}$). Ha 5 classi di coniugio: $\{e\}, \{\rho^2\}, \{\rho, \rho^3\}, \{\sigma, \sigma\rho^2\}, \{\sigma\rho, \sigma\rho^3\}$. Non è abeliano e ha almeno la rappresentazione banale, quindi si ha $8 = 2^2 + 4 \cdot 1^2$ è l'unico modo di scrivere $8$. Dobbiamo quindi trovare $4$ omomorfismi di D4 in $\bbC^{*}$ per poi ricavare per ortogonalità la rappresentazione di dimensione $2$. \\
+	Notiamo che, siccome $\sigma$ ha ordine $2$, esso può essere mandato solo in $\pm 1$ (radici 2-esime dell'unità) e siccome $\rho$ e $\rho^-1$ stanno nella stessa classe di coniugio si ha $x = \chi(\rho)$ deve essere una radice quarta dell'unità che rispetti $x = x^3$ e quindi deve essere solo o $1$ o $-1$. Abbiamo quindi solo quattro possibili scelte per un possibile omomorfismo da D4 in $\bbC^{*}$, che sono quindi obbligate perché sappiamo che esistono $4$ caratteri di dimensione $1$ per D4 (ovvero omomorfismi). Quindi scrivendo questi nella tabella e completandola per ortonormalità si ha: \\
+	\begin{center} \begin{tabular}{lccccc}
+	numero elementi   & 1   & 1   & 2   & 2   & 2   \\
+	classi di conj.   & $e$  & $\rho^2$ & $\rho, \rho^3$ & $\sigma, \sigma\rho^2$ & $\sigma\rho, \sigma\rho^3$ \\ \hline
+	$\chi_\text{id}$  & 1   & 1   & 1   & 1   & 1   \\
+	$\chi_\text{a}$   & 1   & 1   & 1   & -1  & -1  \\
+	$\chi_\text{b}$   & 1   & 1   & -1  & 1   & -1  \\
+	$\chi_\text{ab}$  & 1   & 1   & -1  & -1  & 1   \\
+	$\chi_\text{g}$   & 2   & -2  & 0   & 0   & 0   \\
+	\end{tabular} \end{center} \vskip 0.5cm
 \end{sol}
 
 \begin{sol}
@@ -127,6 +145,7 @@ Trovare la tavola dei caratteri di $D_4, D_5$.
 
 \end{ex}
 
+% Esercizio 7
 \begin{ex}
 Sia $T$ un tetraedro di centro nell'origine, e sia $G \subseteq O_3$ il gruppo delle trasformazioni ortogonali che portano $T$ in se stesso. Numerando in qualche modo i vertici di $T$ da $1$ a $4$, otteniamo un’azione di $G$ su $\{1, 2, 3, 4\}$.
 \begin{itemize}
@@ -148,8 +167,12 @@ Sia $T$ un tetraedro di centro nell'origine, e sia $G \subseteq O_3$ il gruppo d
 
 \end{ex}
 
+% Esercizio 8
 \begin{ex}
-
+Sia $G$ un gruppo finito che agisce su un insieme finito $I$ con almeno due elementi in modo non banale. Diciamo che l'azione è {\it doppiamente transitiva} se date due coppie $(i, i')$ e $(j, j')$ di elementi di $I$ con $i \neq i'$ e $j \neq j'$ esiste $s \in G$ con $s \cdot i = j$ e $s \cdot i' = j'$. \\
+Sia $\rho_I$ la corrispondente rappresentazione per permutazioni e scriviamo $\rho_I = \mathbb{1} + \rho$, come al solito. Allora fate vedere che $\rho$ è irriducibile se e solo se l'azione di $G$ su $I$ è doppiamente transitiva. \\
+Concludete che $S_n$ ha una rappresentazione irriducibile di grado $n-1$ per ogni $n \ge 2$ \\
+Cenno di soluzione: Fate vedere che $\rho$ è irriducibile se e solo se $\langle \chi_{\rho_I} \mid \chi_{\rho_I} \rangle = 2$. Ma $\chi_{\rho_I}$ è reale, per cui $\langle \chi_{\rho_I} \mid \chi_{\rho_I} \rangle = \langle \chi_{\rho_I}^2 \mid 1 \rangle = \langle \chi_{\rho_{I\times I}} \mid 1 \rangle$ e $\langle \chi_{\rho_{I\times I}} \mid 1 \rangle$ è il numero di orbite di $G$ su $I \times I$.
 
 \begin{sol}
 
@@ -162,8 +185,11 @@ Sia $T$ un tetraedro di centro nell'origine, e sia $G \subseteq O_3$ il gruppo d
 
 \end{ex}
 
+% Esercizio 9
 \begin{ex}
-
+Sia $G$ un gruppo finito. Dati due elementi $h, g \in G$ appartenenti a classi di coniugio distinte mostrare che $$ \sum_{\rho \in \Irr(G)} \chi_\rho(g) \overline{\chi_rho(h)} = 0 $$
+dove $\Irr(G)$ denota l'insieme delle rappresentazioni irriducibili di $G$ a meno di isomorfismo. Cosa riuscite a dire sulla precedente somma se invece $h$ e $g$ sono elementi coniugati? \\
+Cenno di soluzione: Considerate il carattere di $\bbC[G]$ come rappresentazione di $G \times G$
 
 \begin{sol}
 
