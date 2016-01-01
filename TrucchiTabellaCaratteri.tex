@@ -12,6 +12,9 @@
 \newcommand{\isom}{\equiv}
 \newcommand{\Irr}{\text{Irr }}
 \newcommand{\Abel}{\text{Abel }}
+\newcommand{\SU}{\text{SU }}
+\newcommand{\U}{\text{U }}
+\newcommand{\SO}{\text{SO }}
 
 \begin{document}
 	\title{Trovare le Tabelle dei caratteri}
@@ -44,7 +47,7 @@
         \end{itemize}
         
         \vskip 1cm
-	\noindent Usiamo ora le tecniche sopra descritte per arrivare alle tabelle dei caratteri dei gruppi ciclici e di alcuni gruppi piccoli (S3, D4, Q8, A4) per poi vedere alcuni trucchi più particolari
+	\noindent Usiamo ora le tecniche sopra descritte per arrivare alle tabelle dei caratteri dei gruppi ciclici e di alcuni gruppi piccoli (S3, D4, Q8, A4). In questo modo si potrà constatare che sia D4 che Q8 hanno la stessa tabella dei caratteri, pur non essendo isomorfi.
 	\vskip 1cm
 	
 	\section*{Gruppi ciclici}
@@ -124,8 +127,10 @@
 		\item ({\bf Prodotto con rappresentazioni di grado $1$}) Siano $\rho, \sigma$ due rappresentazioni irriducibili di $G$ e $\Dim \rho = 1$. Allora $\rho \otimes \sigma$ è ancora una rappresentazione irriducibile di $G$. \\
 		Infatti $\mid \chi_\rho(g) \mid ^ 2 = 1 \quad \forall g \in G$ per quanto detto sopra (essendo in dimensione $1$, $\chi_\rho(g)$ è una radice $n$-esima dell'unità ed ha quindi norma unitaria) e quindi $\scal{\chi_{\rho \otimes \sigma}}{\chi_{\rho \otimes \sigma}} = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma (g) \mid ^2 \cdot \mid \chi_\rho(g) \mid ^2 = \frac{1}{n} \sum_{g \in G} \mid \chi_\sigma(g) \mid^2 = 1$ perché $\sigma$ è irriducibile. \\
 		Questo è molto comodo per trovare altre rappresentazioni di gradi alti se si conoscono quelle di grado $1$. Ci si potrebbe chiedere se valga il viceversa, ovvero è vero che l'azione di "tensorizzare" per una rappresentazione di grado $1$ è transitiva sulle rappresentazioni irriducibili di grado $d$ ? (Se ne ho una e faccio così le ottengo tutte?) Purtroppo no, un controesempio alla portata è la tavola dei caratteri di A5. Esso ha un solo carattere di dimensione $1$ e due caratteri di dimensione $3$.
-		\item ({\bf Rappresentazioni indotte da Sottogruppi}) Se $\rho: G \rar GL(V)$ è una rappresentazione di $G$ e $H \sgr G$, allora si può comporre $\rho$ con l'inclusione per avere $\rho\mid_H: H \rar GL(V)$ come rappresentazione di $H$. \\
+		\item ({\bf Restrizione di rappresentazioni a Sottogruppi}) Se $\rho: G \rar GL(V)$ è una rappresentazione di $G$ e $H \sgr G$, allora si può comporre $\rho$ con l'inclusione per avere $\rho\mid_H: H \rar GL(V)$ come rappresentazione di $H$. \\
 		In particolare, se $\Dim V = 1$ si ha che le rappresentazioni di grado $1$ di $G$ ristrette ad un sottogruppo $H$ devono necessariamente coincidere con una rappresentazione di grado $1$ di $H$ (non possono scomporsi). Se si analizzano diversi sottogruppi ciò può dare molta informazione su $G$.
+		\item ({\bf Rappresentazioni indotte da sottogruppi}) 
+		\item ({\bf Prodotti di rappresentazioni}) Per trovare altre rappresentazioni irriducibili si può prendere il prodotto tensore di due rappresentazioni irriducibili che già si hanno e cercare di scomporre quella che si ottiene per ottenerne di nuove. Con ragionamenti euristici sui gradi è uno strumento molto utile.
 		\item ({\bf $g$ e $g^{-1}$ coniugati}) Se $g$ e $g^{-1}$ appartengono alla stessa classe di coniugio allora $\chi(g)$ è reale. (Mostriamo infatti che in generale $\chi(g^{-1}) = \overline{\chi(g)}$ ottenendo la tesi) \\
 		Se scriviamo la traccia come sopra, ovvero $\Tr \rho(g) = \sum_i m_i \zeta^i$, si nota bene che nella base in cui $g$ è diagonale, lo è anche $g^{-1}$ e gli autovalori di $g^{-1}$ sono esattamente gli inversi di quelli di $g$, ma sulle radici dell'unità l'inverso è uguale al coniugato e quindi $\Tr \rho(g^{-1}) = \sum_i m_i \zeta^{-i} = \sum_i m_i \overline{\zeta^{i}} = \overline{ \sum_i m_i \zeta^{i}} = \overline{\Tr \rho(g)}$ perché $m_i \in \bbN$
 		\item ({\bf Sollevamento di rappresentazioni di gruppi quoziente}) Supponiamo di avere $N \nrm G$ sottogruppo normale e avere una rappresentazione $\rho$ del gruppo quoziente $H := \frac{G}{N}$. Allora questa induce una rappresentazione $\hat\rho$ di $G$ e si ha $\scal{\chi_{\hat\rho}}{\chi_{\hat\rho}} = \scal{\chi_\rho}{\chi_\rho}$ \\
@@ -172,20 +177,33 @@
 	\section{Rappresentazioni dei Gruppi Alterni}
 	
 	
-	\section{Prodotti diretti e semidiretti}
-	Trattiamo qui il problema delle rappresentazioni di $G$ quando $G = H \times K$ con $H, K$ generici oppure quando $G = H \rtimes_\phi K$ con $H, K$ abeliani.
-	
-	\subsection{Rappresentazioni del prodotto diretto}
+	\section{Rappresentazioni del prodotto diretto}
 	Se $G = H \times K$ allora tutte e sole le rappresentazioni irriducibili di $G$ si ottengono come $\rho \otimes \sigma$ ovvero come prodotto tensore di una rappresentazione irriducibile di $H$ e una irriducibile di $K$. \\
-	Infatti notiamo che le classi di coniugio di $H \times K$ sono prodotto cartesiano di classi di coniugio di $H$ e di quelle di $K$. Definiamo allora il sollevamento: siano date due rappresentazioni irriducibili di $H$ e di $K$ ($\rho: H \rar \GL(V)$ e $\sigma: K \rar \GL(W)$ rispettivamente). Definiamo allora la rappresentazione $\tau = \rho \otimes \sigma$ nel modo seguente: $\tau (h, k) := \rho(h) \times \sigma(k)$ dove $(\rho(h) \times \sigma(k))(v, w) := (\rho(h)(v), \sigma(k)(w))$. Verifichiamo che $\tau(h,k)$ è bilineare e quindi induce un'applicazione lineare su $V \otimes W$ per la proprietà universale del prodotto tensore. Si verifica inoltre che $\tau$ è un omomorfismo di gruppi e quindi è una rappresentazione di $G$. \\
-	$$\scal{\chi_\tau}{\chi_\tau} = \scal{\tilde\chi_\rho \cdot \tilde\chi_\sigma}{\tilde\chi_\rho \cdot \tilde\chi_\sigma} = \scal{\tilde\chi_\rho}{\tilde\chi_\rho} \cdot \scal{\tilde\chi_\sigma}{\tilde\chi_\sigma} = 1$$ dove con $\tilde\chi_\rho$ e $\tilde\chi_\sigma$ si intendono le due funzioni di classe che estendono naturalmente $\chi_\rho$ e $\chi_\sigma$. $\tilde\chi_\rho (h, k) := \chi_\rho(h)$. Quindi $\tau$ è irriducibile \\
-	Ora vediamo come da una rappresentazione irriducibile di $H \times K$ se ne ottengano una irriducibile di $H$ e una irriducibile di $K$: dalle immersioni canoniche di $H$ e $K$ in $G$ si ricavano due rappresentazioni di $H$ e di $K$ rispettivamente e notiamo che questa operazione di restrizione ed il sollevamento dato sopra sono una l'inversa dell'altra ($H$ e $K$ commutano e $\tau(h,k) = \tau(h,e) \cdot \tau(e,k)$). Quindi si ottiene che, siccome $\scal{\chi}{\chi} \in \bbN$ allora anche le rappresentazioni ristrette sono irriducibili e quindi abbiamo stabilito la biggezione cercata. {\color{blue} è scritto molto male ma non riesco a scriverlo decentemente (balbo)}
-	
-	\subsection{Rappresentazioni del prodotto semidiretto}
+	Prima di tutto notiamo che le classi di coniugio di $H \times K$ sono prodotto cartesiano di classi di coniugio di $H$ e di quelle di $K$. Quindi il numero di caratteri irriducibili di $H \times K$ sarà esattamente il numero di caratteri irriducibili di $H$ moltiplicato per il numero di quelli di $K$. \\ Date due rappresentazioni irriducibili di $H$ e di $K$ ($\rho: H \rar \GL(V)$ e $\sigma: K \rar \GL(W)$ rispettivamente) definiamo allora la rappresentazione $\tau = \rho \otimes \sigma$ nel modo seguente: $\tau (h, k) := \rho(h) \times \sigma(k)$ dove $(\rho(h) \times \sigma(k))(v, w) := (\rho(h)(v), \sigma(k)(w))$. Verifichiamo che $\tau(h,k)$ è bilineare e quindi induce un'applicazione lineare su $V \otimes W$ per la proprietà universale del prodotto tensore. Si verifica inoltre che $\tau$ è un omomorfismo di gruppi e quindi è una rappresentazione di $G$. \\
+	Inoltre dimostriamo che $\rho^{(\alpha)} \boxtimes \sigma^{(\beta)} \equiv \rho^{(\gamma)} \boxtimes \sigma^{(\delta)} \sse (\alpha, \beta) = (\gamma, \delta)$ facendo un conteggio con i caratteri e dimostrando (si tratta di un facile conto che non facciamo che $$ \scal{\chi_{\rho^{(\alpha)}}\cdot \chi_{\sigma^{(\beta)}}}{\chi_{\rho^{(\gamma)}}\cdot\chi_{\sigma^{(\delta)}}} = \delta_{\alpha,\gamma}\delta_{\beta,\delta}$$
+	e per il piccolo conteggio delle classi di coniugio fatto sopra abbiamo finito per cardinalità (ovvero abbiamo mostrato che la funzione è iniettiva e quindi è anche surgettiva) \\
+	Un altro modo di procedere invece è vedere come da una rappresentazione irriducibile di $H \times K$ se ne ottengano una irriducibile di $H$ e una irriducibile di $K$: dalle immersioni canoniche di $H$ e $K$ in $G$ si ricavano due rappresentazioni di $H$ e di $K$ rispettivamente e notiamo che questa operazione di restrizione ed il sollevamento dato sopra sono una l'inversa dell'altra ($H$ e $K$ commutano e $\tau(h,k) = \tau(h,e) \cdot \tau(e,k)$). Quindi si ottiene che, siccome $\scal{\chi}{\chi} \in \bbN$ allora anche le rappresentazioni ristrette sono irriducibili e quindi abbiamo stabilito la biggezione cercata.
 	
 	
 	\section{Rappresentazioni di grado due}
-	
+	La proponiamo qui per ora sottoforma di un lungo esercizio (e un po' strano perché consideriamo anche delle rappresentazioni su $\bbR$). Ovviamente classificando i sottogruppi di ordine finito di $\U(2, \bbC)$ si riescono a dire quali gruppi hanno un rappresentazione di grado $2$. \\
+	Sia $G = \SU(2)$ (matrici $2\times 2$ unitarie con determinante $1$) e $V = \bbC^2$ la rappresentazione standard di $\SU(2)$. Consideriamo $V$ come rappresentazione reale (quindi ha dimensione $4$).
+	\begin{enumerate}
+		\item Mostra che $V$ è irriducibile come rappresentazione reale
+		\item Sia $\bbH$ il sottospazio di $\End_\bbR(V)$ che consiste di endomorfismi di $V$ come rappresentazione reale. Mostra che $\bbH$ ha dimensione $4$ e che è chiuso sotto moltiplicazione. Mostra che ogni elemento diverso dallo zero in $\bbH$ è invertibile, ovvero che $H$ è un'algebra di divisione
+		\item Trova ora una base $1, i, j, k$ di $\bbH$ in modo che $1$ sia l'unità e valgano le solite relazioni dei quaternioni.
+		\item Sia $G$ il gruppo dei quaternioni di norma $1$. (per $q = a + bi + cj + dk$ con $a, b, c, d \in \bbR$ si ha $\overline{q} = a - bi - cj - dk$ e $\mid\mid{q}\mid\mid = q \cdot \overline{q}$ e attenzione che la moltiplicazione non è commutativa). Mostra che questo gruppo è isomorfo a $\SU(2)$ (e quindi geometricamente $\SU(2)$ è la sfera tridimensionale)
+		\item Considera l'azione di $G$ sullo spazio $V \subseteq \bbH$ spannato da $i, j, k$ data da $x \mapsto qxq^{-1}, \quad q \in G, x \in V$. Siccome questa azione preserva la norma su $V$ abbiamo un omomorfismo $h: \SU(2) \rar \SO(3)$, dove $\SO(3)$ è il gruppo delle rotazioni dello spazio euclideo tridimensionale. Mostra che questo omomorfismo è surgettivo e che il suo kernel è $\{1, -1\}$
+	\end{enumerate}
+	Ora si derivi la classificazione dei sottogruppi di $\SO(3)$ (esplicitata qui sotto per comodità) e usando questa classificazione si classifichino i sottogruppi finiti di $\SU(2)$
+	\begin{itemize}
+		\item I gruppi ciclici $\frac{\bbZ}{n\bbZ}$ generati da una rotazione di $\frac{2\pi}{n}$ attorno ad un asse
+		\item Il gruppo diedrale $D_n$ di ordine $2n$ con $n \ge 2$ (il gruppo delle simmetrie rotazionali nello spazio $3$-dimensionale di un piano contenente un $n$-agono regolare)
+		\item Il gruppo di rotazioni del tetraedro regolare ($A_4$)
+		\item Il gruppo di rotazioni del cubo o dell'ottaedro regolare ($S_4$)
+		\item Il gruppo delle rotazioni di un icosaedro o dodecaedro regolare ($A_5$)
+	\end{itemize}
+	Per fare ciò sia $G$ un sottogruppo finito di $\SO(3)$. Si consideri l'azione di $G$ sulla sfera unitaria. Un punto della sfera preservato da qualche elemento non banale di $G$ viene detto polo. Si mostri che ogni elemento non banale di $G$ fissa un'unica coppia di poli opposti, e che il sottogruppo di $G$ che fissa un particolare polo $P$ è ciclico, di qualche ordine $m$ (detto ordine di $P$). Quindi l'orbita di $P$ ha $\frac{n}{m}$ elementi, dove $n = \mid G \mid$. Siano ora $P_1, \ldots, P_k$ i poli che rappresentano tutte le orbite di $G$ sull'insieme dei poli, e $m_1, \ldots, m_k$ i loro ordini. Contando gli elementi non banali di $G$ mostrare che $$ 2 \left( 1 - \frac{1}{n} \right) = \sum_i \left( 1 - \frac{1}{m_i} \right) $$ quindi trovare tutti i possibili $m_i$ ed $n$ che possono soddisfare questa equazione e classificare i gruppi corrispondenti.
 	
 	\section{Altri Trucchi}
 	\begin{itemize}
@@ -197,10 +215,38 @@
 		Per vedere che è una rappresentazione bisogna verificare che sia un omomorfismo da $G$ in $\GL(V)$, il che è ovvio se $\rho$ lo è. Inoltre per l'irriducibilità basterà verificare la freccia $\rho$ irriducibile implica $\rho \circ \phi$ irriducibile (il contrario è infatti ovvio se componiamo con $\phi^{-1}$). \\
 		Calcoliamo l'irriducibilità di $\rho \circ \phi$ con il carattere $\scal{\chi_{\rho \circ \phi}}{\chi_{\rho \circ \phi}} = \scal{\chi_\rho}{\chi_\rho} = 1$ con un semplice cambio di variabili (un automorfismo è biggettivo)
 		\item ({\bf Sottogruppi normali dalla tavola dei caratteri})
+		
 	\end{itemize}
 	
 	
 	\section{Dimension Theory}
-	In questa sezione introduciamo un po' di machinery per mostrare il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'ordine del gruppo $G$.
+	In questa sezione mostriamo il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'indice del centro $[G:Z]$ e quindi, in particolare, l'ordine del gruppo $G$. \\
+	Vedere parte degli esercizi per una traccia della dimostrazione (poi forse la completo)
+
+	\subsection{Conseguenze}
+	\begin{itemize}
+		\item ({\bf Un gruppo di ordine $p^2$, con $p$ primo, è abeliano}) Infatti per divisibilità può avere solo rappresentazioni di grado $1$, $p$ o $p^2$ ma per la formula della somma dei quadrati ha solo rappresentazioni di grado $1$ ed è quindi abeliano.
+		\item Le rappresentazioni di gruppi di ordini $p^3, p^4$ sono solo di grado $1$ oppure $p$.
+	\end{itemize}
+	
+	\section{Rappresentazioni del prodotto semidiretto}
+	
+
+	\section{Esercizi}
+	Alcuni esercizi che potranno diventare parte del pdf ma che devo ancora risolvere
+	\begin{itemize}
+		\item Supponiamo di avere un gruppo finito $G$ che agisce transitivamente su un insieme finito $X$. Mostrare che la rappresentazione banale compare solo una volta nella rappresentazione per permutazioni indotta $\rho_X$. Sia ora $\rho_X = \mathbb{1} \oplus \sigma_X$. Supponendo che l'azione sia doppiamente transitiva, mostrare che $\sigma_X$ è irriducibile. \\
+		Sia $n \ge 2$ e si consideri l'azione naturale di $S_n$ su $\{1, 2, \ldots, n\}$. Mostrare che $S_n$ ha sempre una rappresentazione irriducibile di grado $n-1$. \\
+		Si consideri l'azione naturale di $\text{GL}_2(\bbF_q)$ su $\bbP^1(\bbF_q)$ e sia $\rho$ la corrispondente rappresentazione per permutazioni. Si mostri che $\rho = \mathbb{1} \oplus \sigma$ e $\sigma$ è irriducibile di grado $q$.
+		\item Sia $\rho$ una rappresentazione irriducibile di un gruppo finito $G$. Se il grado di $\rho$ è al più $2$ mostrare che il suo carattere $\chi_\rho$ si annulla su almeno un elemento di $G$ (può essere conveniente fare prima il caso in cui il carattere di $G$ sia a valori interi)
+		\item Mostra che se $G$ è un gruppo che ha un sottogruppo abeliano di indice $m$, allora ogni rappresentazione irriducibile di $G$ ha grado al più $m$.
+		\item Sia $G$ un gruppo finito e si denoti con $Z$ il suo centro. Sia $\rho$ una rappresentazione irriducibile di $G$ di grado $d_\rho$. Si mostri che
+			\begin{itemize}
+				\item Si consideri $\rho^{(m)}$ definita come $\rho \otimes \rho \otimes \ldots \otimes \rho$ ($m$ volte). Si osservi che è irriducibile come rappresentazione di $G \times G \times \ldots \times G$.
+				\item La rappresentazione $\rho^{(m)}$ è banale sul sottogruppo $\{ (z_1, \ldots, z_m) \in Z \times Z \times \ldots \times Z \mid z_1z_2\ldots z_m = 1 \}$ e si concluda quindi che $d_\rho^m$ divide $\frac{\mid G \mid^m}{\mid Z \mid^{m-1}}$
+				\item Si concluda quindi che $d_\rho$ divide $\frac{\mid G \mid}{\mid Z \mid} = [G: Z]$
+			\end{itemize}
+		\item Sia $\sigma$ la rappresentazione standard di $S_n$. Per $n \ge 4$ si mostri che $\sigma$ ristretta ad $A_n$ è irriducibile. (Hint: mostrare che l'azione di $A_n$ su $\{ 1, 2, \ldots, n\}$ è $(n-2)$-transitiva. )
+	\end{itemize}
 	
 \end{document}
