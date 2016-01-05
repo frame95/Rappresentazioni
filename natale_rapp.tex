@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{ntheorem}
+\usepackage{bbm} % per avere \mathbbm{1}
 \usepackage[colorinlistoftodos]{todonotes}
 
 \theoremstyle{break}
@@ -17,10 +18,19 @@
 \newcommand{\Irr}{\text{Irr }}
 \DeclareMathOperator{\Sp}{Sp}
 \DeclareMathOperator{\tr}{tr}
+
 % Titolo
 \title{Rappresentazioni \\ { \textit soluzioni agli esercizi per natale }}
 \author{Second'anno di matematica, SNS}
 \date{\today}
+
+% ACHTUNG ACHTUNG: Quando contribuite a fare modifiche al file .tex assicuratevi che compili e compilate come pdf!!
+% Ciò significa che, se siete su linux, prima di fare git commit date i comandi:
+% pdflatex natale_rapp.tex
+% Assicurarsi che non ci siano errori e guardare la parte che avete modificato nel pdf per vedere che sia venuta bene
+% (A vostra scelta, tanto non entrano nel repository) rm *.aux *.log *.thm
+% Commitare le modifiche e fare il push
+% Grazie, Nazi Balbo
 
 \begin{document}
 \maketitle
@@ -84,24 +94,24 @@ Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le poss
 Se $\rho$ è una rappresentazione irriducibile di $S_5$ di grado 5 e $s \in S_5$ è un 5-ciclo, fate vedere che $\rho(s)$ ha come autovalori tutte e sole le radici quinte dell’unità.
 
 \begin{sol}
-Sia $\zeta$ una radice primitiva quinta dell'unità.
-\begin{itemize}
-\item Dal fatto che $\rho(s)^5 = I$, se $\lambda \in \Sp \rho(s)$ allora $\lambda^5=1$. \newline
-Inoltre $s^2=(1\ 3 \ 5 \ 2\ 4)$ è coniugato a $s$ e $\Sp \rho(s^2) = \{\lambda^2:\ \lambda \in \Sp \rho(s) \}$.
-\item Sia $a_0 \in \mathbb{N} $ la molteplicità di $\zeta^0 = 1$ e $a_i \in \mathbb{N}$ la molteplicità di $\zeta^{2^i}$ per $i=1, \ldots,4$ relativamente a $\rho(s)$. Allora, visto che $\chi_{\rho}(s) = \chi_{\rho}(s^2)$, usando il fatto che la traccia è la somma degli autovalori si ha
-$$ a_0 + \sum_{i=1}^4 a_i \zeta^{2^i} = a_0 + \sum_{i=1}^4 a_i \zeta^{2^{i+1}}\  \Leftrightarrow \sum_{i=1}^4 (a_i - a_{i-1})\zeta^{2^i} = 0 \ \Leftrightarrow $$
-$$ \zeta [ (a_1-a_4)\zeta + (a_2-a_1)\zeta^3 + (a_3 - a_2) \zeta^2 + (a_4 - a_3) ] = 0 $$
-Ma $p(x) = (a_4-a_3) + (a_1-a_4)x + (a_3-a_2)x^2 + (a_4-a_3)x^3 $ è un polinomio a coefficienti interi di terzo grado che si annulla in $\zeta$, e quindi \newline
-$x^4+ \ldots + 1 \mid p(x) \ \Rightarrow p(x) \equiv 0$. \newline
-Quindi $a_1 = \ldots = a_4 =:n$.
-\item La somma delle molteplicità è la dimensione dello spazio. L'equazione $a_0+4n=4$ ha solo due soluzioni naturali:
-\begin{enumerate}
-\item $a_0=5, n=0$: in questo caso $\rho(s)=I$, e perciò: 
-$$ 120 = 120 \langle \chi_{\rho}, \chi_{\rho} \rangle = \sum_{g \in S_5} | \chi_{\rho}(g) |^2 \ge \sum_{i=0}^{4} |tr(\rho(s^k))|^2 = 125 > 120 = |S_5| $$
-Assurdo.
-\item $a_0 = 1, n=1$: in questo caso $\Sp \rho(s)$ sono esattamente tutte e sole le radici quinte dell'unità, come volevasi dimostrare.
-\end{enumerate}
-\end{itemize}
+	Sia $\zeta$ una radice primitiva quinta dell'unità.
+	\begin{itemize}
+		\item Dal fatto che $\rho(s)^5 = I$, se $\lambda \in \Sp \rho(s)$ allora $\lambda^5=1$. \newline
+		Inoltre $s^2=(1\ 3 \ 5 \ 2\ 4)$ è coniugato a $s$ e $\Sp \rho(s^2) = \{\lambda^2:\ \lambda \in \Sp \rho(s) \}$.
+		\item Sia $a_0 \in \mathbb{N} $ la molteplicità di $\zeta^0 = 1$ e $a_i \in \mathbb{N}$ la molteplicità di $\zeta^{2^i}$ per $i=1, \ldots,4$ relativamente a $\rho(s)$. Allora, visto che $\chi_{\rho}(s) = \chi_{\rho}(s^2)$, usando il fatto che la traccia è la somma degli autovalori si ha
+		$$ a_0 + \sum_{i=1}^4 a_i \zeta^{2^i} = a_0 + \sum_{i=1}^4 a_i \zeta^{2^{i+1}}\  \Leftrightarrow \sum_{i=1}^4 (a_i - a_{i-1})\zeta^{2^i} = 0 \ \Leftrightarrow $$
+		$$ \zeta [ (a_1-a_4)\zeta + (a_2-a_1)\zeta^3 + (a_3 - a_2) \zeta^2 + (a_4 - a_3) ] = 0 $$
+		Ma $p(x) = (a_4-a_3) + (a_1-a_4)x + (a_3-a_2)x^2 + (a_4-a_3)x^3 $ è un polinomio a coefficienti interi di terzo grado che si annulla in $\zeta$, e quindi \newline
+		$x^4+ \ldots + 1 \mid p(x) \ \Rightarrow p(x) \equiv 0$. \newline
+		Quindi $a_1 = \ldots = a_4 =:n$.
+		\item La somma delle molteplicità è la dimensione dello spazio. L'equazione $a_0+4n=4$ ha solo due soluzioni naturali:
+			\begin{enumerate}
+				\item $a_0=5, n=0$: in questo caso $\rho(s)=I$, e perciò: 
+				$$ 120 = 120 \langle \chi_{\rho}, \chi_{\rho} \rangle = \sum_{g \in S_5} | \chi_{\rho}(g) |^2 \ge \sum_{i=0}^{4} |tr(\rho(s^k))|^2 = 125 > 120 = |S_5| $$
+				Assurdo.
+				\item $a_0 = 1, n=1$: in questo caso $\Sp \rho(s)$ sono esattamente tutte e sole le radici quinte dell'unità, come volevasi dimostrare.
+			\end{enumerate}
+	\end{itemize}
 \end{sol}
 
 \begin{sol}
@@ -188,7 +198,7 @@ Sia $T$ un tetraedro di centro nell'origine, e sia $G \subseteq O_3$ il gruppo d
 % Esercizio 8
 \begin{ex}
 Sia $G$ un gruppo finito che agisce su un insieme finito $I$ con almeno due elementi in modo non banale. Diciamo che l'azione è {\it doppiamente transitiva} se date due coppie $(i, i')$ e $(j, j')$ di elementi di $I$ con $i \neq i'$ e $j \neq j'$ esiste $s \in G$ con $s \cdot i = j$ e $s \cdot i' = j'$. \\
-Sia $\rho_I$ la corrispondente rappresentazione per permutazioni e scriviamo $\rho_I = \mathbb{1} + \rho$, come al solito. Allora fate vedere che $\rho$ è irriducibile se e solo se l'azione di $G$ su $I$ è doppiamente transitiva. \\
+Sia $\rho_I$ la corrispondente rappresentazione per permutazioni e scriviamo $\rho_I = \mathbbm{1} + \rho$, come al solito. Allora fate vedere che $\rho$ è irriducibile se e solo se l'azione di $G$ su $I$ è doppiamente transitiva. \\
 Concludete che $S_n$ ha una rappresentazione irriducibile di grado $n-1$ per ogni $n \ge 2$ \\
 Cenno di soluzione: Fate vedere che $\rho$ è irriducibile se e solo se $\langle \chi_{\rho_I} \mid \chi_{\rho_I} \rangle = 2$. Ma $\chi_{\rho_I}$ è reale, per cui $\langle \chi_{\rho_I} \mid \chi_{\rho_I} \rangle = \langle \chi_{\rho_I}^2 \mid 1 \rangle = \langle \chi_{\rho_{I\times I}} \mid 1 \rangle$ e $\langle \chi_{\rho_{I\times I}} \mid 1 \rangle$ è il numero di orbite di $G$ su $I \times I$.
 
