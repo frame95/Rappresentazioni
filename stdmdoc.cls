@@ -4,6 +4,7 @@
 \RequirePackage{titlesec} % Per modificare i titoli delle sezioni
 \RequirePackage{fancyhdr} % Per modificare l'intestazione ed il piè di pagina
 \RequirePackage{bm}
+\RequirePackage{bbm}
 %\RequirePackage{mbboard}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[italian]{babel}

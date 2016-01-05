@@ -89,7 +89,7 @@
 
 	\subsection{Tabella dei caratteri di D4}
 	Ordine di D4: 8 elementi. Generato da 2 elementi: $\rho, \sigma$ (rispettivamente rotazione e simmetria, con relazioni $\rho^4 = \sigma^2 = e$ e $\sigma \rho \sigma^{-1} = \rho^{-1}$). Ha 5 classi di coniugio: $\{e\}, \{\rho^2\}, \{\rho, \rho^3\}, \{\sigma, \sigma\rho^2\}, \{\sigma\rho, \sigma\rho^3\}$. Non è abeliano e ha almeno la rappresentazione banale, quindi si ha $8 = 2^2 + 4 \cdot 1^2$ è l'unico modo di scrivere $8$. Dobbiamo quindi trovare $4$ omomorfismi di D4 in $\bbC^{*}$ per poi ricavare per ortogonalità la rappresentazione di dimensione $2$. \\
-	Notiamo che, siccome $\sigma$ ha ordine $2$, esso può essere mandato solo in $\pm 1$ (radici 2-esime dell'unità) e siccome $\rho$ e $\rho^-1$ stanno nella stessa classe di coniugio si ha $x = \chi(\rho)$ deve essere una radice quarta dell'unità che rispetti $x = x^3$ e quindi deve essere solo o $1$ o $-1$. Abbiamo quindi solo quattro possibili scelte per un possibile omomorfismo da D4 in $\bbC^{*}$, che sono quindi obbligate perché sappiamo che esistono $4$ caratteri di dimensione $1$ per D4 (ovvero omomorfismi). Quindi scrivendo questi nella tabella e completandola per ortonormalità si ha: \\
+	Notiamo che, siccome $\sigma$ ha ordine $2$, esso può essere mandato solo in $\pm 1$ (radici 2-esime dell'unità) e siccome $\rho$ e $\rho^{-1}$ stanno nella stessa classe di coniugio si ha $x = \chi(\rho)$ deve essere una radice quarta dell'unità che rispetti $x = x^3$ e quindi deve essere solo o $1$ o $-1$. Abbiamo quindi solo quattro possibili scelte per un possibile omomorfismo da D4 in $\bbC^{*}$, che sono quindi obbligate perché sappiamo che esistono $4$ caratteri di dimensione $1$ per D4 (ovvero omomorfismi). Quindi scrivendo questi nella tabella e completandola per ortonormalità si ha: \\
 	\begin{center} \begin{tabular}{lccccc}
 	numero elementi   & 1   & 1   & 2   & 2   & 2   \\
 	classi di conj.   & $e$  & $\rho^2$ & $\rho, \rho^3$ & $\sigma, \sigma\rho^2$ & $\sigma\rho, \sigma\rho^3$ \\ \hline
@@ -165,10 +165,10 @@
 		\item ({\bf Numero di rappresentazioni di grado $1$}) Il numero di rappresentazioni di grado $1$ di $G$ è uguale all'indice del derivato di $G$, ovvero all'ordine di $\frac{G}{G'}$. \\
 		Infatti, una rappresentazione di grado $1$, come più volte ricordato, è un omomorfismo da $G$ in $\bbC^{*}$. Per la teoria dei gruppi elementare si ha che, siccome $\bbC^{*}$ è abeliano, ogni omomorfismo da $G$ in $\bbC^{*}$ si fattorizza sull'abelianizzato di $G$. Quindi un carattere di $G$ di dimensione $1$ è necessariamente anche un carattere di dimensione $1$ di $\frac{G}{G'}$. Inoltre, come visto sopra, un carattere irriducibile da un gruppo quoziente si solleva ad un carattere irriducibile di $G$. Si verifica inoltre sciogliendo le definizioni che le due operazioni di sollevamento e di fattorizzazione sono una l'inversa dell'altra. Abbiamo così stabilito una biggezione tra i caratteri di dimensione $1$ di $G$ e quelli di $\Abel(G)$. Si conclude ora notando che $\Abel(G)$ è abeliano, da cui la tesi.
 
-		\item ({\bf Rappresentazioni di grado $1$, come classificarle tutte}) In virtù del paragrafo precedente, trovare il derivato $G' = \langle \{ xyx^-1y^-1:\ x,y \in G\} \rangle$ diventa equivalente a trovare le rappresentazioni di grado 1. Una volta ttrovato $G'$, basta quozientare e sollevare i caratteri del gruppo abeliano $G/G'$. Come trovare il derivato:
+		\item ({\bf Rappresentazioni di grado $1$, come classificarle tutte}) In virtù del paragrafo precedente, trovare il derivato $G' = \langle \{ xyx^{-1}y^{-1}:\ x,y \in G\} \rangle$ diventa equivalente a trovare le rappresentazioni di grado 1. Una volta ttrovato $G'$, basta quozientare e sollevare i caratteri del gruppo abeliano $G/G'$. Come trovare il derivato:
 		\begin{itemize}
 			\item Intanto, si scrivono le classi di coniugio (che uno dovrebbe aver già fatto se sta facendo la tabella);
-			\item Si trova qualche elemento, considerando che fare $(xyx^-1)y^-1$ significa fissare un $y$ e poi moltiplicare un suo coniugato con il suo inverso.
+			\item Si trova qualche elemento, considerando che fare $(xyx^{-1})y^{-1}$ significa fissare un $y$ e poi moltiplicare un suo coniugato con il suo inverso.
 			\item Si tiene presente che $G'$ è un sottogruppo (quindi la cardinalità divide la cardinalità del gruppo e se ci sono due tizi c'è anche il prodotto) normale (quindi se c'è un elemento c'è anche tutta la sua classe di coniugio). 
 			\item Per limitare invece la dimensione di $G'$, se pensate di essere soddisfatti del vostro $G'$ quozientate: se viene abeliano, avete fatto!
 			\item Un colpo al cerchio e uno alla botte: se trovate un omomorfismo ad un gruppo abeliano $\varphi:G \to H$ (ad esempio una rappresentazione di grado 1 con $H = \bbC^*$), allora  $G' \subseteq \ker \varphi$. \\
@@ -179,14 +179,14 @@
 		Generalmente, è meglio trovare prima le rappresentazioni di grado 1 con le tecniche sopra descritte. Poi cercare di trovare quante rappresentazioni ho di ogni grado, usando che il grado di una rappresentazione divide l'ordine del gruppo, che il numero di rappresentazioni è uguale al numero delle classi di coniugio e che i quadrati dei gradi sommano all'ordine del gruppo.
 		Per ogni nuova rappresentazione che scopro, posso tensorizzarla con tutte quelle di grado 1 e 'permutarla' con la tecnica degli automorfismi descritta in 'Altri Trucchi'. Se invece sono alla ricerca di nuove rappresentazioni e me ne rimangono poche, posso limitarle sapendo che posso generarne altre. In particolare, se mi rimane una sola rappresentazione $\sigma$ di grado $d$ (e sulle altre ho già fatto tensorizzazioni e permutazioni), allora:
 		\begin{itemize}
-			\item Se $\chi_{\rho}(x) \neq 1$ per $\rho$ irriducibile di grado 1, allora $\chi_{\sigma}(x) = 0$, altrimenti $\rho \otimes \sigma$ sarebbe distinta da $\sigma$ (e anche da tutte le altre, perchè $\sigma \otimes \rho = \tau \ \Rightarrow \sigma = \tau \otimes \rho^-1$, perciò l'avrei già ottenuta prima).
+			\item Se $\chi_{\rho}(x) \neq 1$ per $\rho$ irriducibile di grado 1, allora $\chi_{\sigma}(x) = 0$, altrimenti $\rho \otimes \sigma$ sarebbe distinta da $\sigma$ (e anche da tutte le altre, perchè $\sigma \otimes \rho = \tau \ \Rightarrow \sigma = \tau \otimes \rho^{-1}$, perciò l'avrei già ottenuta prima).
 			\item Se $\psi:G \to G$ è un automorfismo che manda $x$ in $y$ allora $\chi_{\sigma}(x) = \chi_{\sigma}(y)$, altrimenti $\sigma \psi$ sarebbe distinta da $\sigma$ (e anche da tutte le altre, perchè $\sigma\psi = \tau \Rightarrow \sigma = \tau \psi^{-1}$, perciò l'avrei già ottenuta prima).
 		\end{itemize}
 	\end{itemize}
 
 	\section{Rappresentazioni dei Gruppi Diedrali}
 	\subsection{Gruppi diedrali di ordine $2n$ con $n$ pari}
-	Consideriamo il gruppo $D_{n}$ con $n$ pari. $D_{n} := \langle a, x \mid a^n = x^2 = e, xax = a^-1 \rangle$. Questo gruppo ha $\frac{n+6}{2}$ classi di coniugio: l'identità, l'elemento $a^{\frac{n}{2}}$, $\frac{n-2}{2}$ classi di coniugio in $\gen{a}$ e due classi al di fuori di $\gen{a}$, con rappresentanti $x$ e $ax$. \\
+	Consideriamo il gruppo $D_{n}$ con $n$ pari. $D_{n} := \langle a, x \mid a^n = x^2 = e, xax = a^{-1} \rangle$. Questo gruppo ha $\frac{n+6}{2}$ classi di coniugio: l'identità, l'elemento $a^{\frac{n}{2}}$, $\frac{n-2}{2}$ classi di coniugio in $\gen{a}$ e due classi al di fuori di $\gen{a}$, con rappresentanti $x$ e $ax$. \\
 	Il sottogruppo dei commutatori è $\gen{a^2}$ che ha indice $4$ ed il gruppo quoziente (l'abelianizzato) è $C_2 \times C_2$. Abbiamo quindi solo $4$ caratteri uno dimensionali:
 	\begin{itemize}
 		\item La rappresentazione banale
@@ -206,6 +206,22 @@
 	Inoltre si nota che, al variare di $k$, le rappresentazioni di dimensione $2$ così definite: $$a \mapsto \left( \begin{array}{cc} e^{ \frac{2\pi ik}{n} } & 0 \\ 0 & e^{ \frac{-2\pi ik}{n} } \\ \end{array} \right) $$ $$x \mapsto \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right)$$ sono $\frac{n-1}{2}$ (le rappresentazioni per $k$ e per $n-k$ sono le stesse) e sommando i quadrati di questi numeri si vede che abbiamo così trovato tutte le rappresentazioni di $D_{2n}$
 
 	\section{Rappresentazioni dei Gruppi Simmetrici}
+	\subsection{Alcune considerazioni generali}
+	
+	
+	\subsection{Tabella dei caratteri di S4}
+	Le classi di coniugio di $S_4$ sono (scrivo solo i rappresentanti): $\text{id}, (1 2), (1 2 3), (1 2 3 4), (1 2)(3 4)$. Numero di elementi: 24. Inoltre non è abeliano e si trova agilmente il morfismo di segno. Inoltre ci si convince facilmente che l'unico modo di scrivere $24$ con queste constraint è $24 = 1^2 + 1^2 + 2^2 + 3^2 + 3^2$. Inoltre sappiamo che $S_n$ ha una rappresentazione standard data da una componente irriducibile dell'azione su $\{1, \ldots, n\}$ di dimensione $3$ che si riesce a calcolare bene. L'altra rappresentazione di grado $3$ si ottiene facendo il prodotto tensore tra quella standard e quella di segno. Si completa poi la tabella dei caratteri per ortogonalità.
+	\begin{center} \begin{tabular}{lccccc}
+	numero di elementi & 1    & 6    & 8    & 6   & 3   \\
+	classi di conj.    & $\text{id}$ & $(1 2)$ & $(1 2 3)$ & $(1 2 3 4)$ & $(1 2)(3 4)$ \\ \hline
+	$\chi_\text{id}$   & 1    & 1    & 1    & 1   & 1   \\
+	$\chi_\text{sgn}$  & 1    & -1   & 1    & -1  & 1   \\
+	$\chi_\text{std}$  & 3    & 1    & 0    & -1  & -1  \\
+	$\chi_\text{sgn} \otimes \chi_\text{std}$ & 3   & -1  & 0   & 1    & -1  \\
+	$\chi_\text{altra}$ & 2   & 0    & -1   & 0   & 2   \\
+	\end{tabular} \end{center} \vskip 0.5cm
+	
+	\subsection{Tabella dei caratteri di S5}
 
 	\section{Rappresentazioni dei Gruppi Alterni}
 
@@ -264,13 +280,13 @@
 	\section{Rappresentazioni del prodotto semidiretto}
 
 	\section{Esercizi}
-	Alcuni esercizi che potranno diventare parte del pdf (in particolare se qualcuno ha voglia di farli e poi scriverne la soluzione e/o aggiungerla nella parte che più si addice è il benvenuto)
+	Alcuni esercizi che potranno diventare parte del pdf (in particolare se qualcuno ha voglia di farli e poi scriverne la soluzione e/o aggiungerla nella parte che più si addice è il benvenuto). Non è detto che siano facili ed, in generale, non ne conosco la soluzione.
 	\begin{itemize}
-		\item Supponiamo di avere un gruppo finito $G$ che agisce transitivamente su un insieme finito $X$. Mostrare che la rappresentazione banale compare solo una volta nella rappresentazione per permutazioni indotta $\rho_X$. Sia ora $\rho_X = \mathbb{1} \oplus \sigma_X$. Supponendo che l'azione sia doppiamente transitiva, mostrare che $\sigma_X$ è irriducibile. \\
+		\item Supponiamo di avere un gruppo finito $G$ che agisce transitivamente su un insieme finito $X$. Mostrare che la rappresentazione banale compare solo una volta nella rappresentazione per permutazioni indotta $\rho_X$. Sia ora $\rho_X = \mathbbm{1} \oplus \sigma_X$. Supponendo che l'azione sia doppiamente transitiva, mostrare che $\sigma_X$ è irriducibile. \\
 		Sia $n \ge 2$ e si consideri l'azione naturale di $S_n$ su $\{1, 2, \ldots, n\}$. Mostrare che $S_n$ ha sempre una rappresentazione irriducibile di grado $n-1$. \\
-		Si consideri l'azione naturale di $\text{GL}_2(\bbF_q)$ su $\bbP^1(\bbF_q)$ e sia $\rho$ la corrispondente rappresentazione per permutazioni. Si mostri che $\rho = \mathbb{1} \oplus \sigma$ e $\sigma$ è irriducibile di grado $q$.
+		Si consideri l'azione naturale di $\text{GL}_2(\bbF_q)$ su $\bbP^1(\bbF_q)$ e sia $\rho$ la corrispondente rappresentazione per permutazioni. Si mostri che $\rho = \mathbbm{1} \oplus \sigma$ e $\sigma$ è irriducibile di grado $q$.
 
-		\item Sia $\rho$ una rappresentazione irriducibile di un gruppo finito $G$. Se il grado di $\rho$ è al più $2$ mostrare che il suo carattere $\chi_\rho$ si annulla su almeno un elemento di $G$ (può essere conveniente fare prima il caso in cui il carattere di $G$ sia a valori interi)
+		\item Sia $\rho$ una rappresentazione irriducibile di un gruppo finito $G$. Se il grado di $\rho$ è al più $2$ mostrare che il suo carattere $\chi_\rho$ si annulla su almeno un elemento di $G$ (può essere conveniente fare prima il caso in cui il carattere di $G$ sia a valori interi ed il caso di $G$ gruppo ciclico)
 
 		\item Mostra che se $G$ è un gruppo che ha un sottogruppo abeliano di indice $m$, allora ogni rappresentazione irriducibile di $G$ ha grado al più $m$.
 
@@ -284,6 +300,11 @@
 		\item Sia $\sigma$ la rappresentazione standard di $S_n$. Per $n \ge 4$ si mostri che $\sigma$ ristretta ad $A_n$ è irriducibile. (Hint: mostrare che l'azione di $A_n$ su $\{ 1, 2, \ldots, n\}$ è $(n-2)$-transitiva. )
 
 		\item Sia $G$ un gruppo finito e $g \in G$. Dimostra che $g$ è coniugato a $g^{-1}$ se e solo se $\chi(g)$ è reale per ogni carattere irriducibile $\chi$ di $G$. Diciamo in questo caso che la classe di coniugio di $g$ è auto-inversa. Dimostra inoltre che il numero di caratteri irriducibili di $G$ che assume solo valori reali è uguale al numero di classi di coniugio di $G$ che sono auto-inverse.
+
+		\item Sia $G$ un gruppo finito. Dimostrare che $g$ è coniugato ad $h$ se e solo se $\chi(g) = \chi(h)$ per tutti i caratteri irriducibili $\chi$ di $G$.
+
+		\item Sia $G$ un gruppo finito. Allora $\mid G \mid$ è dispari se e solo se $G$ non ha caratteri non-banali a valori solamente reali. (ovvero $\exists \chi \tc \chi(g) \in \bbR \quad \forall g \in G$ (e $\chi$ non banale) se e solo se $G$ ha ordine pari). \\
+		Sia inoltre $G$ un gruppo di ordine dispari e sia $s$ il numero delle sue classi di coniugio. Allora $s \equiv \mid G \mid \quad (\mod 16)$
 
 		\item Mostra che il coniugato complesso di un carattere irriducibile è ancora un carattere irriducibile. Indichiamo poi con $M$ la tabella dei caratteri di $G$ pensata come matrice quadrata. Mostrare che $\Det M$ è reale oppure immaginario puro e cerca di esprimerlo in termini di dati sul gruppo (non ho idea di cosa voglia dire l'ultima parte)
 	\end{itemize}
