@@ -270,14 +270,16 @@
 	\section{Dimension Theory}
 	In questa sezione mostriamo il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'ordine del gruppo $G$.  \\
 	Vedere poi la parte degli esercizi per una traccia della dimostrazione che il grado divide anche l'indice del centro $Z$ (poi forse la completo). \\
-	Sia $n = \mid G \mid$ e $d_\rho$ la dimensione della rappresentazione irriducibile $\rho$. Definiamo la funzione di classe $\phi_\rho(g) := \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1})$.
-	Osserviamo che, detto $R$ un sistema di rappresentanti delle classi laterali di $c(g)$, vale
-	$$ \phi_\rho(g) = \frac{ |c(g)|}{n} \sum_{x \in R} \rho(xgx^{-1}) $$
-	Dimostriamo che in realtà $\phi$ è un multiplo scalare dell'identità. Infatti, si ha $\forall g,h \in G$
-	$$ \phi(g) \rho(h) = \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1}) \rho(h) = \frac{1}{n} \sum_{x =hy \in G} \rho(hygy^{-1}h^{-1} h) = \rho(h) \frac{1}{n} \sum_{y \in G} \rho(ygy^{-1}) = \rho(h) \phi(g) $$ 
-	Quindi per Schur $\phi(g) = \lambda \Id $. Inoltre, visto che la traccia è invariante per coniugio:
-	$$ \Tr \phi(g) = \frac{1}{n}  \sum_{g \in G} \Tr \rho(xgx^{-1})  = \Tr \rho(g) $$
-	da cui si ottiene $\phi(g) = \frac{\chi_\rho(g)}{d_\rho } \Id $. 
+%	Commento la dimostrazione perché non è completa, potrebbe confondere
+%
+%	Sia $n = \mid G \mid$ e $d_\rho$ la dimensione della rappresentazione irriducibile $\rho$. Definiamo la funzione di classe $\phi_\rho(g) := \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1})$.
+%	Osserviamo che, detto $R$ un sistema di rappresentanti delle classi laterali di $c(g)$, vale
+%	$$ \phi_\rho(g) = \frac{ |c(g)|}{n} \sum_{x \in R} \rho(xgx^{-1}) $$
+%	Dimostriamo che in realtà $\phi$ è un multiplo scalare dell'identità. Infatti, si ha $\forall g,h \in G$
+%	$$ \phi(g) \rho(h) = \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1}) \rho(h) = \frac{1}{n} \sum_{x =hy \in G} \rho(hygy^{-1}h^{-1} h) = \rho(h) \frac{1}{n} \sum_{y \in G} \rho(ygy^{-1}) = \rho(h) \phi(g) $$ 
+%	Quindi per Schur $\phi(g) = \lambda \Id $. Inoltre, visto che la traccia è invariante per coniugio:
+%	$$ \Tr \phi(g) = \frac{1}{n}  \sum_{g \in G} \Tr \rho(xgx^{-1})  = \Tr \rho(g) $$
+%	da cui si ottiene $\phi(g) = \frac{\chi_\rho(g)}{d_\rho } \Id $. 
 
 	\subsection{Conseguenze}
 	\begin{itemize}
