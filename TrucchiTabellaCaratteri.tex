@@ -268,8 +268,16 @@
 	\end{itemize}
 
 	\section{Dimension Theory}
-	In questa sezione mostriamo il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'indice del centro $[G:Z]$ e quindi, in particolare, l'ordine del gruppo $G$. \\
-	Vedere parte degli esercizi per una traccia della dimostrazione (poi forse la completo)
+	In questa sezione mostriamo il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'ordine del gruppo $G$.  \\
+	Vedere poi la parte degli esercizi per una traccia della dimostrazione che il grado divide anche l'indice del centro $Z$ (poi forse la completo). \\
+	Sia $n = \mid G \mid$ e $d_\rho$ la dimensione della rappresentazione irriducibile $\rho$. Definiamo la funzione di classe $\phi_\rho(g) := \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1})$.
+	Osserviamo che, detto $R$ un sistema di rappresentanti delle classi laterali di $c(g)$, vale
+	$$ \phi_\rho(g) = \frac{ |c(g)|}{n} \sum_{x \in R} \rho(xgx^{-1}) $$
+	Dimostriamo che in realtà $\phi$ è un multiplo scalare dell'identità. Infatti, si ha $\forall g,h \in G$
+	$$ \phi(g) \rho(h) = \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1}) \rho(h) = \frac{1}{n} \sum_{x =hy \in G} \rho(hygy^{-1}h^{-1} h) = \rho(h) \frac{1}{n} \sum_{y \in G} \rho(ygy^{-1}) = \rho(h) \phi(g) $$ 
+	Quindi per Schur $\phi(g) = \lambda \Id $. Inoltre, visto che la traccia è invariante per coniugio:
+	$$ \Tr \phi(g) = \frac{1}{n}  \sum_{g \in G} \Tr \rho(xgx^{-1})  = \Tr \rho(g) $$
+	da cui si ottiene $\phi(g) = \frac{\chi_\rho(g)}{d_\rho } \Id $. 
 
 	\subsection{Conseguenze}
 	\begin{itemize}
@@ -307,5 +315,16 @@
 		Sia inoltre $G$ un gruppo di ordine dispari e sia $s$ il numero delle sue classi di coniugio. Allora $s \equiv \mid G \mid \quad (\mod 16)$
 
 		\item Mostra che il coniugato complesso di un carattere irriducibile è ancora un carattere irriducibile. Indichiamo poi con $M$ la tabella dei caratteri di $G$ pensata come matrice quadrata. Mostrare che $\Det M$ è reale oppure immaginario puro e cerca di esprimerlo in termini di dati sul gruppo (non ho idea di cosa voglia dire l'ultima parte)
+
+		\item Sia $\chi$ irriducibile e di grado $n$, $C$ una classe di coniugio di cardinalità prima con $n$. Allora se $s \in C$, si ha $\chi (s) = 0$ oppure $\mid \chi(s) \mid = n$.
+		
+		\item Se una classe di coniugio $C$ di un gruppo $G$ contiene un numero di elementi che è una potenza di un primo, allora $G$ non è semplice.
+
+		\item Diciamo che un elemento $g$ in un gruppo finito $G$, si dice razionale se, $\forall h \in G$ tale che $\gen{h} = \gen{g}$, $\exists x \in G \tc xgx^{-1} = h$. Ovvero se un altro elemento genera lo stesso sottogruppo allora è coniugato. Dimostrare che ogni elemento razionale ha carattere razionale (e quindi intero, ma questo è molto più difficile). \\
+			È vero anche il viceversa? (Cioè, se ho $g \in G$ tale che $\forall \rho \quad \chi_\rho(g) \in \bbQ$, è vero che $g$ è coniugato agli elementi del tipo $g^r$, con $\MCD(r, \Ord g) = 1$ ?)\\
+			Diciamo ora che un gruppo è razionale se ogni suo elemento è razionale. Mostrare allora che se $G$ è un gruppo razionale e $N$ un suo sottogruppo normale, anche $G/N$ è un gruppo razionale. Mostrare inoltre che se $H$ è un sottogruppo di $G$, non è detto che $H$ sia razionale. \\
+			Dimostrare che $S_n$ è un gruppo razionale.
+		
+		\item Sia $G$ un gruppo finito e $\rho$ una sua rappresentazione di dimensione finita. Dimostrare allora che $\rho$ è fedele (ovvero $\rho(g) = \Id \implies g = e$) $\sse \exists m \in \bbN $ tale che tutte le rappresentazioni irriducibili di $G$ compaiono nella decomposizione in irriducibili di $\rho^{\otimes m}$, dove si intende il prodotto tensore di $\rho$ con sè stessa $m$ volte.
 	\end{itemize}
 \end{document}
