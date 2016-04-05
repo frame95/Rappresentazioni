@@ -1,5 +1,7 @@
 \documentclass[a4paper,NoNotes,GeneralMath]{stdmdoc}
 
+\usepackage{bbm}
+
 \newcommand{\Ord}{\text{ord }}
 \newcommand{\sgr}{\sqsubseteq}
 \newcommand{\nrm}{\lhd}
@@ -15,6 +17,8 @@
 \newcommand{\SU}{\text{SU }}
 \newcommand{\U}{\text{U }}
 \newcommand{\SO}{\text{SO }}
+\newcommand{\Sym}{\text{Sym }}
+\newcommand{\Hom}{\text{Hom }}
 
 % Regole di buona scrittura e condotta
 % 1. PRIMA DI COMMITARE COMPILATE IL FILE E VEDETE SE FUNGE
@@ -207,7 +211,7 @@
 
 	\section{Rappresentazioni dei Gruppi Simmetrici}
 	\subsection{Alcune considerazioni generali}
-	
+	Notiamo che $\sigma$ è coniugato a $\sigma^r$ per ogni $r$ coprimo con l'ordine di $\sigma$. Quindi per un esercizio più sotto (che forse verrà trascritto qui sopra) si ha che i caratteri delle irriducibili di $S_n$ sono tutti interi.
 	
 	\subsection{Tabella dei caratteri di S4}
 	Le classi di coniugio di $S_4$ sono (scrivo solo i rappresentanti): $\text{id}, (1 2), (1 2 3), (1 2 3 4), (1 2)(3 4)$. Numero di elementi: 24. Inoltre non è abeliano e si trova agilmente il morfismo di segno. Inoltre ci si convince facilmente che l'unico modo di scrivere $24$ con queste constraint è $24 = 1^2 + 1^2 + 2^2 + 3^2 + 3^2$. Inoltre sappiamo che $S_n$ ha una rappresentazione standard data da una componente irriducibile dell'azione su $\{1, \ldots, n\}$ di dimensione $3$ che si riesce a calcolare bene. L'altra rappresentazione di grado $3$ si ottiene facendo il prodotto tensore tra quella standard e quella di segno. Si completa poi la tabella dei caratteri per ortogonalità.
@@ -221,9 +225,9 @@
 	$\chi_\text{altra}$ & 2   & 0    & -1   & 0   & 2   \\
 	\end{tabular} \end{center} \vskip 0.5cm
 	
-	\subsection{Tabella dei caratteri di S5}
+	%\subsection{Tabella dei caratteri di S5}
 
-	\section{Rappresentazioni dei Gruppi Alterni}
+	%\section{Rappresentazioni dei Gruppi Alterni}
 
 	\section{Rappresentazioni del prodotto diretto}
 	Se $G = H \times K$ allora tutte e sole le rappresentazioni irriducibili di $G$ si ottengono come $\rho \otimes \sigma$ ovvero come prodotto tensore di una rappresentazione irriducibile di $H$ e una irriducibile di $K$. \\
@@ -263,7 +267,7 @@
 		Per vedere che è una rappresentazione bisogna verificare che sia un omomorfismo da $G$ in $\GL(V)$, il che è ovvio se $\rho$ lo è. Inoltre per l'irriducibilità basterà verificare la freccia $\rho$ irriducibile implica $\rho \circ \phi$ irriducibile (il contrario è infatti ovvio se componiamo con $\phi^{-1}$). \\
 		Calcoliamo l'irriducibilità di $\rho \circ \phi$ con il carattere $\scal{\chi_{\rho \circ \phi}}{\chi_{\rho \circ \phi}} = \scal{\chi_\rho}{\chi_\rho} = 1$ con un semplice cambio di variabili (un automorfismo è biggettivo)
 
-		\item ({\bf Sottogruppi normali dalla tavola dei caratteri})
+		%\item ({\bf Sottogruppi normali dalla tavola dei caratteri})
 		
 	\end{itemize}
 
@@ -287,7 +291,68 @@
 		\item Le rappresentazioni di gruppi di ordini $p^3, p^4$ sono solo di grado $1$ oppure $p$.
 	\end{itemize}
 
-	\section{Rappresentazioni del prodotto semidiretto}
+	%\section{Rappresentazioni del prodotto semidiretto}
+
+	\section{Rappresentazioni costruite}
+	Data una rappresentazione $V$ si possono costruire nel modo che abbiamo visto $\Lambda^2 V$ e $\Sym^2 V$ per le quali si ha:
+	\begin{itemize}
+		\item $\chi_{\Lambda^2 V}(g) = \frac{1}{2} (\chi_V(g)^2 - \chi_V(g^2))$
+		\item $\chi_{\Sym^2 V}(g) = \frac{1}{2} (\chi_V(g)^2 + \chi_V(g^2))$
+	\end{itemize}
+	Dovrebbero inoltre valere (formule di Newton-Girard): 
+	$$ \Tr \Lambda^k(g) = \frac{1}{k} \sum_{m=1}^k (-1)^{m-1} \Tr(g^m) \Tr(\Lambda^{k-m}(g)) $$
+	$$ \Tr \Sym^k(g) = \frac{1}{k} \sum_{m=1}^k \Tr(g^m) \Tr(\Sym^{k-m}(g)) $$
+
+	\section{Rappresentazioni reali}
+	Sia $\rho: G \rar \GL(V_\rho)$ una rappresentazione irriducibile. Si hanno allora i seguenti casi:
+	\begin{itemize}
+		\item $\rho \not\cong \rho^{*} \sse \chi_\rho \notin \bbR$ ovvero se il carattere ha almeno un valore non reale
+		\item $\rho \cong \rho^{*}$ e $V_\rho$ ha una forma quadratica invariante non degenere (e $\rho$ è reale $\sse$ si verifica questo caso)
+		\item $\rho \cong \rho^{*}$ e $V_\rho$ ha una forma alternante invariante non degenere
+	\end{itemize}
+	Per sapere quale dei tre casi si verificano è sufficiente calcolare l'indicatore di Schur:
+	$\frac{1}{\mid G \mid} \sum_g \chi_\rho(g^2) = \frac{1}{\mid G \mid} \sum_g (\chi_{\Sym^2 V}(g) - \chi_{\Lambda^2 V}(g)) = \Dim \Hom (\Sym^2 V, \mathbbm{1}) - \Dim \Hom (\Lambda^2 V, \mathbbm{1}) $
+
+	\section{Realificazione e Complessificazione}
+	Sia $f: W \rar W$ una funzione $\bbC$-lineare. $f_\bbR: W_\bbR \rar W_\bbR$ è ora $\bbR$-lineare e vale $\Tr f_\bbR = 2 \Re(\Tr f) = \Tr f + \overline{\Tr f}$ \\
+	Se ho ora una rappresentazione complessa $\sigma: G \rar \GL(V_\sigma)$ ne ottengo una rappresentazione reale $\sigma_\bbR: G \rar \GL(V_{\sigma \bbR})$ componendo con l'inclusione $\GL(V_\sigma) \rar \GL(V_{\sigma \bbR})$ e si ha inoltre $\chi_{\sigma \bbR} = \chi_\sigma + \overline{\chi_\sigma} = \chi_{\sigma \oplus \sigma^{*}}$. Notare che $\Dim_\bbR \sigma_\bbR = 2 \Dim_\bbC \sigma$. (Notare che ciò non significa che $\sigma \cong \sigma^{*}$ come rappresentazioni reali, i caratteri sui reali non valgono molto) \\
+	Dato uno spazio vettoriale reale si può complessificare e si ha $V_\bbC := V \otimes_\bbR \bbC$ (come $\bbR$-spazi) e $V_\bbC$ è in modo naturale uno spazio vettoriale complesso con la moltiplicazione a sinistra. La cosa bellina è che scelta $\{ e_1, \ldots, e_n \}$ $\bbR$-base di $V$ si ha che $[f_\bbC]_{e_i} = [f]_{e_i}$, ovvero le matrici che rappresentano il morfismo hanno le stesse entrate! \\
+	Ci si può convincere facilmente che $(\sigma_\bbR)_\bbC \equiv \sigma \oplus \sigma^{*}$ (basta fare il conto sui caratteri) \\
+	Inoltre abbiamo l'aggiunzione seguente: $V$ spazio vettoriale reale, $W$ spazio vettoriale complesso. Allora vale $\Hom_\bbR(V, W_\bbR) \equiv \Hom_\bbC(V_\bbC, W)$, dove l'isomorfismo vale a livello di spazi vettoriali. E in questa corrispondenza gli omomorfismi di rappresentazioni si corrispondono.
+	Sia quindi $\rho$ rappresentazione su $\bbR$ e $\sigma$ rappresentazione sui complessi. Allora può essere utile sapere che $\Hom (\rho_\bbC, \sigma) \equiv \Hom (\rho, \sigma_\bbR)$. \\
+	Infatti in questo modo si ha che $\rho_\bbC = \sigma \oplus \ldots$ se e solo se $\sigma_\bbR = \rho \oplus \ldots$. \\
+	
+	\subsection*{Casi di Realificazione}
+	Supponiamo di avere $V$ rappresentazione complessa irriducibile. Allora abbiamo i seguenti due casi per $V_\bbR$:
+	\begin{itemize}
+		\item $V_\bbR$ è irriducibile
+		\item $V_\bbR \cong 2 W$, con $W$ irriducibile
+	\end{itemize}
+	Inoltre vale sempre che $V_{\bbR_\bbC} \cong V \oplus V^{*}$ (conto con i caratteri)
+	
+	\subsection*{Casi di Complessificazione}
+	Supponiamo di avere $V$ rappresentazione reale irriducibile. Allora abbiamo i seguenti due casi per $V_\bbC$:
+	\begin{itemize}
+		\item $V_\bbC$ è irriducibile
+		\item $V_\bbC \cong W \oplus W^{*}$, con $W$ irriducibile
+	\end{itemize} 
+	Notare che se la dimensione di $V$ è dispari, si verifica sempre che $V_\bbC$ è irriducibile. \\
+	Inoltre vale sempre che $V_{\bbC_\bbR} \cong 2 V$ (seguire cosa fanno le matrici)
+	
+	\subsection*{Numero di irriducibili}
+	Se prendo una rappresentazione reale irriducibile $V$ e faccio $V_\bbC$ e la decompongo in irriducibili complesse ho che se parto da $V$ iniziali diverse ottengo sempre una somma di diverse rappresentazioni complesse in arrivo. In particolare "accoppio" sempre $W$ e $W^{*}$.
+	
+	\subsection*{Tutte le rappresentazioni reali (o meglio i caratteri)}
+	Per trovare quindi tutte le rappresentazioni reali di un dato gruppo (conoscendone la tabella dei caratteri complessi) basterà accoppiare ciascuna rappresentazione complessa con la duale, e realificandole so che ottengo $2$ copie di $V$. \\
+	Notate però che i caratteri sulle rappresentazioni reali non sono tanto fighi quanto su quelle complesse.
+	
+	\subsection*{Sapere se una rappresentazione reale è irriducibile}
+	Considero $\chi_V(g)$, carattere di una rappresentazione reale, come se fosse il carattere di una rappresentazione complessa (complessificando viene quello). Adesso ho che:
+	\begin{itemize}
+		\item Se è irriducibile come carattere complesso, allora lo è anche la rappresentazione reale
+		\item Se mi viene $\cong \rho \oplus \rho^{*}$ con $\rho$ irriducibile allora è irriducibile anche la rappresentazione reale
+		\item Altrimenti la rappresentazione reale non è irriducibile
+	\end{itemize}
 
 	\section{Esercizi}
 	Alcuni esercizi che potranno diventare parte del pdf (in particolare se qualcuno ha voglia di farli e poi scriverne la soluzione e/o aggiungerla nella parte che più si addice è il benvenuto). Non è detto che siano facili ed, in generale, non ne conosco la soluzione.
