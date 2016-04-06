@@ -293,6 +293,54 @@
 
 	%\section{Rappresentazioni del prodotto semidiretto}
 
+	\section{Teoremi che valgono sui gruppi finiti / compatti}
+	
+	\subsection{Coefficienti Matriciali}
+	Sia $\rho$ una rappresentazione finito dimensionale di $G$. Fissata una base di $V$ $\{v_1, \ldots, v_n\}$ definiamo $\rho_{ij}(g) := [\rho(g)]_{ij}$ rispetto alla base di $V$. Questo ci dà una funzione $\rho_{ij}: G \rar \bbC$ che si chiama coefficiente matriciale e $\rho_{ij} \in \cC(G)$ \\
+	Definiamo $M(\rho) = \Span(p_{ij})_{i, j}$ e notiamo che non dipende dalla base, allora si ha che se $\rho$ è irriducibile $M(\rho) \cong \End(V)$ come $G \times G$-rappresentazione. Si hanno le seguenti cose:
+	\begin{itemize}
+		\item $\rho \cong \rho' \implies M(\rho) = M(\rho')$
+		\item $M(\rho \oplus \sigma) = M(\rho) + M(\sigma)$, dove la seconda somma è di spazi vettoriali, quindi non tiene conto delle molteplicità
+	\end{itemize}
+	Considerando il prodotto hermitiano di $L^2(G)$ dato da $(f \mid h) = \int_G f(g)\overline{h(g)} \de g$ allora si ha $(\rho_{ij}, \sigma_{hk}) = \delta_{ih} \delta_{jk} \delta_{\sigma\rho} \frac{1}{n}$ dove $n = \Dim V_\rho$, e vale che $\cC(G) = \oplus^{\text{TOP}}_{\rho \in \Irr(G)} M(\rho)$, ovvero i coefficienti matriciali formano un sistema ortogonale completo.
+	
+	\subsection{Lemma sulla decomposizione}
+	Supponiamo di avere $V = \oplus_i V_i$, dove le $V_i$ sono rappresentazioni irriducibili di $G$ non isomorfe tra di loro e supponiamo di avere $W \subseteq V$ un sottospazio $G$-invariante. Allora $W = \oplus_i W_i$ dove si ha $W_i \subseteq V_i$ (eventualmente nullo). \\
+	Si dimostra con la proiezione $W_i \rar V_i \cong \frac{V}{\oplus_{j \neq i} V_j}$ e per Schur è nulla oppure è isomorfismo.
+	
+	\section{Integrazione di Haar}
+	Vogliamo definire una funzione $\int_G: \cC(G, \bbC) \rar \bbC$ che sia
+	\begin{itemize}
+		\item Lineare su $\cC(G, \bbC)$
+		\item Invariante rispetto all'azione di $G$ sulle funzioni continue (destra e sinistra per i gruppi compatti)
+		\item $f \ge 0, f \neq 0 \implies \int_G f(g) \de g > 0$
+		\item $\int_G \mathbbm{1} = 1$
+	\end{itemize}
+	Per tutti i gruppi compatti si ha esistenza ed unicità della misura che la definisce
+	
+	\section{Rappresentazioni di $S^1$}
+	\subsection{Integrazione di Haar}
+	Sia $f$ continua da $S^1$ a $\bbR$. Allora abbiamo che l'integrazione di Haar è
+	$$ \int_{S^1} f(g) \de g = \frac{1}{2 \pi} \int_{0}^{2\pi} f(e^{i\theta}) \de \theta $$
+	
+	\subsection{Rappresentazioni irriducibili}
+	Essendo un gruppo abeliano, tutte le rappresentazioni irriducibili hanno dimensione $1$ e sono quindi omomorfismi da $S^1$ in $\bbC^{*}$. Si vede che hanno come immagini solo $S^1$ e sono continui, quindi abbiamo che sono tutte e sole le mappe del tipo $e^{i\theta} \mapsto e^{im\theta}$ con $m \in \bbZ$.
+	
+	\section{Rappresentazioni di $S^3 \cong \SU(2)$}
+	Useremo il fatto che $S^3 \cong \SU(2)$, che possiamo a sua volta immergere in $\bbH$
+	
+	\subsection{Integrazione di Haar}
+	L'integrazione invariante viene indotta dall'iniezione $S^3 \subseteq \bbR^4$ ed è invariante perché $\SU(2)$ agisce ortogonalmente su $\bbH \cong \bbR^4$. Se prendiamo le coordinate sferiche su $\bbR^4$ otteniamo $\varphi \in [0, 2\pi], \theta, \psi \in [0, \pi]$ le coordinate
+	$$ x_1 = r \cos \theta, x_2 = r \sin \theta \cos \psi, x_3 = r \sin \theta \sin \psi \cos \varphi, x_4 = r \sin \theta \sin \psi \sin \varphi $$
+	E si ha quindi $\int_{\SU(2)} f(g) \de g = \frac{1}{2 \pi^2} \int_0^{2\pi} \int_0^\pi \int_0^\pi f(\theta, \varphi, \psi) \sin^2 \theta \sin \psi \de \theta \de \varphi \de \psi$
+	
+	\subsection{Rappresentazioni irriducibili}
+	Preso $U \cong \bbC^2$ abbiamo l'azione ovvia di $\SU(2)$ qui sopra. Allora tutte e sole le rappresentazioni irriducibili di $\SU(2)$ sono quelle del tipo $V_m := S^m U^{*} \cong \bbC[x,y]_m$ \\
+	Il carattere di $\rho_m$ si esprime solo in termini di $\cos\theta$ e si ha $\chi_{\rho_m}(A(e^{i\theta})) = \sum_{j=0}^m e^{i(2j-m)\theta} = \frac{e^{i(m+1)\theta} - e^{-i(m+1)\theta}}{e^{i\theta} - e^{-i\theta}}$
+	
+	\subsection{Formula di Clebsch-Gordan}
+	Supponiamo $m \ge n$ allora la decomposizione dei prodotti tensore è $\rho_m \otimes \rho_n = \sum_{j=0}^n \rho_{m+n-2j}$
+
 	\section{Rappresentazioni costruite}
 	Data una rappresentazione $V$ si possono costruire nel modo che abbiamo visto $\Lambda^2 V$ e $\Sym^2 V$ per le quali si ha:
 	\begin{itemize}
