@@ -19,6 +19,7 @@
 \newcommand{\SO}{\text{SO }}
 \newcommand{\Sym}{\text{Sym }}
 \newcommand{\Hom}{\text{Hom }}
+\newcommand{\Dimmax}{\text{Dimmax }}
 
 % Regole di buona scrittura e condotta
 % 1. PRIMA DI COMMITARE COMPILATE IL FILE E VEDETE SE FUNGE
@@ -211,7 +212,8 @@
 
 	\section{Rappresentazioni dei Gruppi Simmetrici}
 	\subsection{Alcune considerazioni generali}
-	Notiamo che $\sigma$ è coniugato a $\sigma^r$ per ogni $r$ coprimo con l'ordine di $\sigma$. Quindi per un esercizio più sotto (che forse verrà trascritto qui sopra) si ha che i caratteri delle irriducibili di $S_n$ sono tutti interi.
+	Notiamo che $\sigma$ è coniugato a $\sigma^r$ per ogni $r$ coprimo con l'ordine di $\sigma$. Quindi per un esercizio più sotto (che forse verrà trascritto qui sopra) si ha che i caratteri delle irriducibili di $S_n$ sono tutti interi. \\
+	In particolare è molto più semplice mostrare che tutti i caratteri sono reali, perché si ha che $\sigma$ è coniugato a $\sigma^{-1}$ in quanto hanno la stessa struttura ciclica, quindi si ha $\chi_\rho(g) = \chi_\rho(g^{-1}) = \overline{\chi_\rho(g)}$ e quindi $\chi_\rho(g) \in \bbR$.
 	
 	\subsection{Tabella dei caratteri di S4}
 	Le classi di coniugio di $S_4$ sono (scrivo solo i rappresentanti): $\text{id}, (1 2), (1 2 3), (1 2 3 4), (1 2)(3 4)$. Numero di elementi: 24. Inoltre non è abeliano e si trova agilmente il morfismo di segno. Inoltre ci si convince facilmente che l'unico modo di scrivere $24$ con queste constraint è $24 = 1^2 + 1^2 + 2^2 + 3^2 + 3^2$. Inoltre sappiamo che $S_n$ ha una rappresentazione standard data da una componente irriducibile dell'azione su $\{1, \ldots, n\}$ di dimensione $3$ che si riesce a calcolare bene. L'altra rappresentazione di grado $3$ si ottiene facendo il prodotto tensore tra quella standard e quella di segno. Si completa poi la tabella dei caratteri per ortogonalità.
@@ -234,7 +236,8 @@
 	Prima di tutto notiamo che le classi di coniugio di $H \times K$ sono prodotto cartesiano di classi di coniugio di $H$ e di quelle di $K$. Quindi il numero di caratteri irriducibili di $H \times K$ sarà esattamente il numero di caratteri irriducibili di $H$ moltiplicato per il numero di quelli di $K$. \\ Date due rappresentazioni irriducibili di $H$ e di $K$ ($\rho: H \rar \GL(V)$ e $\sigma: K \rar \GL(W)$ rispettivamente) definiamo allora la rappresentazione $\tau = \rho \otimes \sigma$ nel modo seguente: $\tau (h, k) := \rho(h) \times \sigma(k)$ dove $(\rho(h) \times \sigma(k))(v, w) := (\rho(h)(v), \sigma(k)(w))$. Verifichiamo che $\tau(h,k)$ è bilineare e quindi induce un'applicazione lineare su $V \otimes W$ per la proprietà universale del prodotto tensore. Si verifica inoltre che $\tau$ è un omomorfismo di gruppi e quindi è una rappresentazione di $G$. \\
 	Inoltre dimostriamo che $\rho^{(\alpha)} \boxtimes \sigma^{(\beta)} \equiv \rho^{(\gamma)} \boxtimes \sigma^{(\delta)} \sse (\alpha, \beta) = (\gamma, \delta)$ facendo un conteggio con i caratteri e dimostrando (si tratta di un facile conto che non facciamo che $$ \scal{\chi_{\rho^{(\alpha)}}\cdot \chi_{\sigma^{(\beta)}}}{\chi_{\rho^{(\gamma)}}\cdot\chi_{\sigma^{(\delta)}}} = \delta_{\alpha,\gamma}\delta_{\beta,\delta}$$
 	e per il piccolo conteggio delle classi di coniugio fatto sopra abbiamo finito per cardinalità (ovvero abbiamo mostrato che la funzione è iniettiva e quindi è anche surgettiva) \\
-	Un altro modo di procedere invece è vedere come da una rappresentazione irriducibile di $H \times K$ se ne ottengano una irriducibile di $H$ e una irriducibile di $K$: dalle immersioni canoniche di $H$ e $K$ in $G$ si ricavano due rappresentazioni di $H$ e di $K$ rispettivamente e notiamo che questa operazione di restrizione ed il sollevamento dato sopra sono una l'inversa dell'altra ($H$ e $K$ commutano e $\tau(h,k) = \tau(h,e) \cdot \tau(e,k)$). Quindi si ottiene che, siccome $\scal{\chi}{\chi} \in \bbN$ allora anche le rappresentazioni ristrette sono irriducibili e quindi abbiamo stabilito la biggezione cercata.
+	Un altro modo di procedere invece è vedere come da una rappresentazione irriducibile di $H \times K$ se ne ottengano una irriducibile di $H$ e una irriducibile di $K$: dalle immersioni canoniche di $H$ e $K$ in $G$ si ricavano due rappresentazioni di $H$ e di $K$ rispettivamente e notiamo che questa operazione di restrizione ed il sollevamento dato sopra sono una l'inversa dell'altra ($H$ e $K$ commutano e $\tau(h,k) = \tau(h,e) \cdot \tau(e,k)$). Quindi si ottiene che, siccome $\scal{\chi}{\chi} \in \bbN$ allora anche le rappresentazioni ristrette sono irriducibili e quindi abbiamo stabilito la biggezione cercata. \\
+	Per i gruppi compatti la cosa vale comunque, ma è un pelo più difficile mostrare che se $\gamma$ è una rappresentazione irriducibile di $H \times K$ allora si scrive come prodotto di $\sigma \otimes \rho$ con $\sigma$ e $\rho$ rappresentazioni irriducibili rispettivamente di $H$ e $K$. Per fare questa cosa bisogna considerare $\gamma$ solo come rappresentazione di uno dei due gruppi e scomporla. Con un po' di considerazioni si riesce a calare un isomorfismo di rappresentazioni con un prodotto tensore.
 
 	\section{Rappresentazioni di grado due}
 	La proponiamo qui per ora sottoforma di un lungo esercizio (e un po' strano perché consideriamo anche delle rappresentazioni su $\bbR$). Ovviamente classificando i sottogruppi di ordine finito di $\U(2, \bbC)$ si riescono a dire quali gruppi hanno un rappresentazione di grado $2$. \\
@@ -293,7 +296,12 @@
 
 	\section{Teoremi che valgono sui gruppi finiti / compatti}
 	\subsection{Scontro di caratteri}
-	Su campi algebricamente chiusi vale $(\chi_\rho \mid \chi_\sigma) = \Dim \Hom_G (\rho, \sigma)$ e quindi in particolare si ha che $\rho$ è irriducibile se e solo se $(\chi_\rho \mid \chi_\sigma) = 1$
+	Su campi algebricamente chiusi vale $(\chi_\rho \mid \chi_\sigma) = \Dim \Hom_G (\rho, \sigma)$ e quindi in particolare si ha che $\rho$ è irriducibile se e solo se $(\chi_\rho \mid \chi_\rho) = 1$
+	
+	%\subsection{Gruppi abeliani}
+	%$G$ è abeliano $\implies$ ogni rappresentazione irriducibile di $G$ ha dimensione uno. \\
+	%$\box{\implies}$ Basta osservare che $\forall s \in G$ si ha $\rho(s)$ è un omomorfismo di rappresentazioni, quindi per Schur si ha $\rho(s) = \lambda \Id$ per ogni $s$, ovvero affinché $\rho$ sia irriducibile deve andare in uno spazio di dimensione uno. \\
+	%Il viceversa dovrebbe essere vero anche per gruppi compatti, ma non so mostrarlo.
 	
 	\subsection{Coefficienti Matriciali}
 	Sia $\rho$ una rappresentazione finito dimensionale di $G$. Fissata una base di $V$ $\{v_1, \ldots, v_n\}$ definiamo $\rho_{ij}(g) := [\rho(g)]_{ij}$ rispetto alla base di $V$. Questo ci dà una funzione $\rho_{ij}: G \rar \bbC$ che si chiama coefficiente matriciale e $\rho_{ij} \in \cC(G)$ \\
@@ -441,5 +449,7 @@
 			Dimostrare che $S_n$ è un gruppo razionale.
 		
 		\item Sia $G$ un gruppo finito e $\rho$ una sua rappresentazione di dimensione finita. Dimostrare allora che $\rho$ è fedele (ovvero $\rho(g) = \Id \implies g = e$) $\sse \exists m \in \bbN $ tale che tutte le rappresentazioni irriducibili di $G$ compaiono nella decomposizione in irriducibili di $\rho^{\otimes m}$, dove si intende il prodotto tensore di $\rho$ con sè stessa $m$ volte.
+		
+		\item Indichiamo con $\Dimmax G$ la massima dimensione di una rappresentazione irriducibile di $G$. Sia allora $H$ un qualsiasi sottogruppo di $G$. Allora vale che $\Dimmax G \le \Dimmax H \cdot [G : H]$, dove $[G : H]$ è l'indice di $H$ in $G$.
 	\end{itemize}
 \end{document}
