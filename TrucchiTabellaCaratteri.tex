@@ -274,16 +274,14 @@
 	\section{Dimension Theory}
 	In questa sezione mostriamo il risultato fondamentale che il grado di una rappresentazione irriducibile divide l'ordine del gruppo $G$.  \\
 	Vedere poi la parte degli esercizi per una traccia della dimostrazione che il grado divide anche l'indice del centro $Z$ (poi forse la completo). \\
-%	Commento la dimostrazione perché non è completa, potrebbe confondere
-%
-%	Sia $n = \mid G \mid$ e $d_\rho$ la dimensione della rappresentazione irriducibile $\rho$. Definiamo la funzione di classe $\phi_\rho(g) := \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1})$.
-%	Osserviamo che, detto $R$ un sistema di rappresentanti delle classi laterali di $c(g)$, vale
-%	$$ \phi_\rho(g) = \frac{ |c(g)|}{n} \sum_{x \in R} \rho(xgx^{-1}) $$
-%	Dimostriamo che in realtà $\phi$ è un multiplo scalare dell'identità. Infatti, si ha $\forall g,h \in G$
-%	$$ \phi(g) \rho(h) = \frac{1}{n} \sum_{x \in G} \rho(xgx^{-1}) \rho(h) = \frac{1}{n} \sum_{x =hy \in G} \rho(hygy^{-1}h^{-1} h) = \rho(h) \frac{1}{n} \sum_{y \in G} \rho(ygy^{-1}) = \rho(h) \phi(g) $$ 
-%	Quindi per Schur $\phi(g) = \lambda \Id $. Inoltre, visto che la traccia è invariante per coniugio:
-%	$$ \Tr \phi(g) = \frac{1}{n}  \sum_{g \in G} \Tr \rho(xgx^{-1})  = \Tr \rho(g) $$
-%	da cui si ottiene $\phi(g) = \frac{\chi_\rho(g)}{d_\rho } \Id $. 
+	Idea della dimostrazione:
+	\begin{itemize}
+		\item $\forall g \in G$ si ha che $\rho(g)$ è diagonalizzabile perché $\rho(g)^k = \Id$ per un certo $k \in \bbN$, quindi $\chi_\rho(g) = \sum_{i=1}^n \zeta^{m(i)}$ dove $n = \Dim \rho$ e $\zeta$ è una radice primitiva dell'unità (in particolare $\zeta^k = 1$ e, detto $r = \mid G \mid$ si ha $\zeta^r = 1$). Quindi $\chi_\rho(g) \in \bbZ[\zeta]$
+		\item Si consideri ora $P = \sum_{g \in G} \overline{\chi_\rho(g)} \rho(g): V \rar V$ allora si ha che $P$ è un omomorfismo di rappresentazioni e quindi per schur si ha $P = \lambda \Id$. Considerando $\Tr P$ e usando il fatto che $\rho$ è irriducibile si trova $\lambda = \frac{\mid G \mid}{\Dim \rho}$
+		\item Mostriamo ora che $\forall k \in \bbN$ si ha $\Tr P^k \in \bbZ[\zeta]$ e anche che $\Tr P^k \in \bbQ$
+		\item A questo punto, ed è il punto più difficile, bisogna mostrare che $\bbZ[\zeta] \cap \bbQ = \bbZ$. Per farlo occorre prima mostrare che $\forall a \in \bbZ[\zeta]$ si ha $\exists p(x) \in \bbZ[x]$ monico tale che $p(a) = 0$. Questo si può mostrare piuttosto in fretta mostrando che le radici dell'unità soddisfano la condizione e che se $a$ e $b$ soddisfano la condizione, allora anche $a+b$ la soddisfa (si può usare il risultante per questo)
+		\item Da ciò deriva quindi che $\Tr P^k \in \bbZ$, ovvero che $\frac{\mid G \mid^k}{(\Dim \rho)^{k-1}} \in \bbZ \quad \forall k$ e ora si può mostrare che ciò implica $\Dim \rho \mid G$, semplicemente passando ai primi. Si prenda $p^\alpha \mid\mid \Dim \rho$ e allora si ha che $p^{\alpha (k-1)} \mid G^k \quad \forall k$. Ora sia $\beta$ tale che $p^\beta \mid\mid G$. Allora $p^{\alpha (k-1)} \mid p^{\beta k}$, ovvero che $\alpha (k-1) \le \beta k \implies \alpha \le \beta \cdot \frac{k}{k-1}$ e facendo il limite per $k \to \infty$ si ha $\alpha \le \beta$ , ovvero per ogni potenza di primo $p^\alpha$ che divide $\Dim \rho$ si ha anche $p^\alpha \mid G$ quindi $\Dim \rho \mid G$.
+	\end{itemize}
 
 	\subsection{Conseguenze}
 	\begin{itemize}
@@ -294,6 +292,8 @@
 	%\section{Rappresentazioni del prodotto semidiretto}
 
 	\section{Teoremi che valgono sui gruppi finiti / compatti}
+	\subsection{Scontro di caratteri}
+	Su campi algebricamente chiusi vale $(\chi_\rho \mid \chi_\sigma) = \Dim \Hom_G (\rho, \sigma)$ e quindi in particolare si ha che $\rho$ è irriducibile se e solo se $(\chi_\rho \mid \chi_\sigma) = 1$
 	
 	\subsection{Coefficienti Matriciali}
 	Sia $\rho$ una rappresentazione finito dimensionale di $G$. Fissata una base di $V$ $\{v_1, \ldots, v_n\}$ definiamo $\rho_{ij}(g) := [\rho(g)]_{ij}$ rispetto alla base di $V$. Questo ci dà una funzione $\rho_{ij}: G \rar \bbC$ che si chiama coefficiente matriciale e $\rho_{ij} \in \cC(G)$ \\
