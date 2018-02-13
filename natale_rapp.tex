@@ -38,11 +38,13 @@
 \section*{Soluzioni agli esercizi}
 % Esercizio 1
 \begin{ex} 
-Siano $k$, e $n$ due interi positivi. Per ogni $\sigma \in S_k$ denotate con $\omega(\sigma)$ il numero di orbite di $\sigma$ su $\{1, \ldots, k\}$. Dimostrate la formula:
+Siano $k$ e $n$ due interi positivi. Per ogni $\sigma \in S_k$ denotate con $\omega(\sigma)$ il numero di orbite di $\sigma$ su $\{1, \ldots, k\}$. Dimostrate la formula:
 $$ \frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)} = \binom{n+k-1}{k} $$
 
 \begin{sol} 
-	
+	Si consideri $G = S_k$ e $X$ l'insieme delle funzioni da $\{1, .., k\}$ in $\{1, .., n\}$. Su questo insieme si faccia agire $S_k$ in questo modo: data una permutazione $\sigma \in S_k$ e $f\in X$, $(\sigma f) (x) = f(\sigma(x))$, dove $x\in \{1, .., k\}$.\\
+	Fissata $\sigma \in G$ cerchiamo le $f \in X$ che sono fissate da $\sigma$: $\forall x$, $(\sigma f)(x)=f(\sigma(x))=f(x)$. Osserviamo che questo implica $\forall h$ interi $f(x) = f(\sigma^h (x))$. Dunque le $f$ fissate sono costanti sulle orbite di $\sigma$, e in effetti qualunque $f$ costante sulle orbite di $\sigma$ è fissata. Dunque, poichè si deve scegliere un numero fra 1 e $n$ per ogni orbita in modo indipendente, ho $n^{\omega(\sigma)}$ funzioni fissate da $\sigma$.\\
+	Per il lemma di Burnside il numero di orbite in cui si divide $X$ è dunque $|{\raisebox{.2em}{X}\left/\raisebox{-.2em}{G}\right.}|$ = $\frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)}$, ma si può contare diversamente: due funzioni appartengono alla stessa orbita secondo $G$ se e solo se hanno le immagini uguali come multiset (cioè contando il numero di controimmagini). Assegnamo dunque a $s_i$ il numero di elementi in $\{1, .., k\}$ che sono mappati in $i \in \{1, .., n\}$. Vale $\forall i$ $s_i\geq 0$ e $\sum_{1}^{n} s_i = k$ poichè si assegna un valore a ogni elemento del dominio. Per ogni possibile $\{s_i\}$ esiste una e una sola orbita, dunque si è concluso ricordando che vi sono $\binom{n+k-1}{k}$ modi per partizionare un intero $k$ in $n$ addendi contando l'ordine.
 \end{sol}
 
 \begin{sol}
@@ -57,7 +59,7 @@ $$ \frac{1}{k!} \sum_{\sigma \in S_k} n^{\omega(\sigma)} = \binom{n+k-1}{k} $$
 Calcolate la scomposizione in fattori irriducibili dei prodotti di tutte le possibili coppie di rappresentazioni irriducibili di $S_4$.
 
 \begin{sol}
-
+	
 \end{sol}
 
 \begin{sol}
